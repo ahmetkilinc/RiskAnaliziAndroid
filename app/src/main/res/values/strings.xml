@@ -1,0 +1,345 @@
+<resources>
+    <string name="app_name">Yıldırımdan Korunma - Risk Analizi</string>
+    <string name="radsan_logo_desc">Radsan Logo</string>
+
+    <string name="yapi_alert_yes">Evet</string>
+    <string name="yapi_alert_no">İptal</string>
+    <string name="yapi_alert_title">Yaptığınız Değişiklikler Kaybolabilir!</string>
+    <string name="yapi_alert_message">Çıkmak istediğinize emin misiniz?</string>
+
+    <string name="toast_uyari">Devam Etmeden Önce Lütfen Bu Sayfadaki Bilgileri Doldurunuz.</string>
+
+    <string name="main_section1">Yapı</string>
+
+    <string name="child_section1_1">Yapı Boyutları:</string>
+    <string name="hint_uzunluk">Uzunluk (m)</string>
+    <string name="hint_genislik">Genişlik (m)</string>
+    <string name="hint_cati_duzlemi_yerden_yukseklik">Çatı Düzleminin Yerden Yüksekliği (m)</string>
+    <string name="hint_cati_en_yuksek_nokta_yerden_yuksekligi">Çatıdaki En Yüksek Noktanın Yerden Yüksekliği* (m)</string>
+    <string name="hint_toplama_alani">Toplama Alanı</string>
+
+    <string name="child_section1_2">Yapı/Çatı Malzemeleri:</string>
+    <string name="yapi_malzemesi">Yapı Malzemesi:</string>
+    <string name="cati_malzemesi">Çatı Malzemesi:</string>
+
+    <string name="child_section1_3">Yapı Özellikleri:</string>
+    <string name="fiziksel_hasar_yangin_riski">Fiziksel Hasar veya Yangın Riski:</string>
+    <string name="yapinin_ekranlanmasi">Yapının Ekranlanması:</string>
+    <string name="kablolarin_ekranlanmasi">Kabloların Ekranlanması:</string>
+
+    <string name="button_devam">Devam</string>
+    <string name="button_geri">Geri</string>
+
+    <string name="main_section2">Çevre Koşulları</string>
+
+    <string name="konum_faktoru">Konum Faktörü:</string>
+    <string name="cevre_faktoru">Çevre Faktörü:</string>
+    <string name="yillik_gok_gurultulu_gun_sayisi">Yıllık Gök Gürültülü Gün Sayısı:</string>
+
+    <string name="izokronik_harita">İzokronik Harita:</string>
+
+
+    <string name="main_section3">Servis Hatları</string>
+
+    <string name="enerji_hatti">Enerji Hattı:</string>
+    <string name="yapiya_gelen_hattin_turu">Yapıya Gelen Hattın Türü:</string>
+    <string name="kablolarin_ekranlanmasi_servis">Kabloların Ekranlanması:</string>
+    <string name="ogag_trafo_varligi">OG/AG Trafosunun Varlığı:</string>
+
+    <string name="diger_yerustu_servisler">Diğer Yerüstü Servisler:</string>
+    <string name="hint_iletken_servis_sayisi">İletken Servislerin Sayısı</string>
+    <string name="yapiya_gelen_hattin_turu_servis_yerustu">Yapıya Gelen Hattın Türü:</string>
+
+    <string name="diger_yerati_servisler">Diğer Yeraltı Servisler:</string>
+    <string name="hint_iletken_servis_sayisi_yeralti">İletken Servislerin Sayısı</string>
+    <string name="yapiya_gelen_hattin_turu_servis_yeralti">Yapıya Gelen Hattın Türü:</string>
+
+    <string name="yer_alti_servis">Yeraltı Servis Sağlayıcı</string>
+
+    <string name="main_section4">Korunma Önlemleri</string>
+
+    <string name="korunma_onlemleri">Korunma Önlemleri</string>
+    <string name="yildirimdan_korunma_duzeyi">Yıldırımdan Korunma Düzeyi:</string>
+    <string name="yangindan_korunma_turu">Yangından Korunma Türü:</string>
+    <string name="asiri_gerilimden_korunma_turu">Aşırı Gerilimden Korunma Türü:</string>
+
+    <string name="main_section5">Kayıp Türü I-II</string>
+    <string name="can_kaybi">Can Kaybı:</string>
+    <string name="yasamsal_tehlikeler">Yaşamsal Tehlikeler:</string>
+    <string name="yangindan_can_kaybi">Yangından Can Kaybı:</string>
+    <string name="asiri_gerilimden_can_kaybi">Asiri Gerilimden Can Kaybi:</string>
+
+    <string name="genel_servis_kaybi">Genel Servis Kaybı:</string>
+    <string name="yangindan_zarar_gorecek_servis">Yangından Zarar Görecek Servis:</string>
+    <string name="asiri_gerilimden_zarar_gorecek_servis">Aşırı Gerilimden Zarar Görecek Servis:</string>
+
+    <string name="main_section6">Kayıp Türü III-IV</string>
+    <string name="kulturel_miras_kaybi">Kültürel Miras Kaybı:</string>
+    <string name="yangin_nedeniyle_kulturel_miras_kaybi">Yangın Nedeniyle Kültürel Miras Kaybı:</string>
+
+    <string name="ekonomik_kayip">Ekonomik Kayıp:</string>
+    <string name="ekonomik_zarar">Ekonomik Zarar:</string>
+    <string name="yangin_nedeniyle_ekonomik_kayip">Yangın Nedeniyle Ekonomik Kayıp:</string>
+    <string name="asiri_gerilim_nedeniyle_ekonomik_kayip">Aşırı Gerilim Nedeniyle Ekonomik Kayıp:</string>
+    <string name="adim_gerilim_etkisi">Adım/Dokunma Gerilimi Etkisi:</string>
+    <string name="kabul_edilir_ekonomik_risk">Kabul Edilir Ekonomik Risk:</string>
+    <string name="button_gonder">Gönder</string>
+
+    <string-array name="yapi_malzemesi">
+        <item>Metal</item>
+        <item>Tuğla Beton</item>
+        <item>Tutuşabilir</item>
+    </string-array>
+
+    <string-array name="cati_malzemesi">
+        <item>Metal</item>
+        <item>Kiremit</item>
+        <item>Yanıcı</item>
+    </string-array>
+
+    <string-array name="fiziksel_hasar_yangin_riski">
+        <item>Değersiz, Yanıcı Olmayan</item>
+        <item>Normal Değerli, Yanıcı</item>
+        <item>Değerli, Yanıcı</item>
+        <item>Çok Değerli, Yeri Doldurulamaz, Patlayıcı ve Yanıcı</item>
+    </string-array>
+
+    <string-array name="yapinin_ekranlanmasi">
+        <item>Ekransız</item>
+        <item>Ekranlı</item>
+    </string-array>
+
+    <string-array name="kablolarin_ekranlanmasi">
+        <item>Ekransız</item>
+        <item>Ekranlı</item>
+    </string-array>
+
+
+    <string-array name="konum_faktoru">
+        <item>Yapı aynı yükseklikte veya daha yüksek yapılar arasında</item>
+        <item>Yüksekliği az yapılar arasında</item>
+        <item>Etrafında yapı yok ise</item>
+        <item>Bölgedeki en yüksek bina ise</item>
+    </string-array>
+
+    <string-array name="cevre_faktoru">
+        <item>Sürekli kullanımı yok, çevrede değersiz</item>
+        <item>Sürekli kullanımda, çevrede değersiz</item>
+        <item>Çevrede değerli</item>
+    </string-array>
+
+    <string-array name="yillik_gok_gurultulu_gun">
+        <item>Adana</item>
+        <item>Adıyaman</item>
+        <item>Afyon</item>
+        <item>Ağrı</item>
+        <item>Amasya</item>
+        <item>Ankara</item>
+        <item>Antalya</item>
+        <item>Artvin</item>
+        <item>Aydın</item>
+        <item>Balıkesir</item>
+        <item>Bilecik</item>
+        <item>Bingöl</item>
+        <item>Bitlis</item>
+        <item>Bolu</item>
+        <item>Burdur</item>
+        <item>Bursa</item>
+        <item>Çanakkale</item>
+        <item>Çankırı</item>
+        <item>Çorum</item>
+        <item>Denizli</item>
+        <item>Diyarbakır</item>
+        <item>Edirne</item>
+        <item>Elazığ</item>
+        <item>Erzincan</item>
+        <item>Erzurum</item>
+        <item>Eskişehir</item>
+        <item>Gaziantep</item>
+        <item>Giresun</item>
+        <item>Gümüşhane</item>
+        <item>Hakkari</item>
+        <item>Hatay</item>
+        <item>Isparta</item>
+        <item>Mersin</item>
+        <item>İstanbul</item>
+        <item>İzmir</item>
+        <item>Kars</item>
+        <item>Kastamonu</item>
+        <item>Kayseri</item>
+        <item>Kırklareli</item>
+        <item>Kırşehir</item>
+        <item>Kocaeli</item>
+        <item>Konya</item>
+        <item>Kütahya</item>
+        <item>Malatya</item>
+        <item>Manisa</item>
+        <item>K.maraş</item>
+        <item>Mardin</item>
+        <item>Muğla</item>
+        <item>Muş</item>
+        <item>Nevşehir</item>
+        <item>Niğde</item>
+        <item>Ordu</item>
+        <item>Rize</item>
+        <item>Sakarya</item>
+        <item>Samsun</item>
+        <item>Siirt</item>
+        <item>Sinop</item>
+        <item>Sivas</item>
+        <item>Tekirdağ</item>
+        <item>Tokat</item>
+        <item>Trabzon</item>
+        <item>Tunceli</item>
+        <item>Şanlıurfa</item>
+        <item>Uşak</item>
+        <item>Van</item>
+        <item>Yozgat</item>
+        <item>Zonguldak</item>
+        <item>Aksaray</item>
+        <item>Bayburt</item>
+        <item>Karaman</item>
+        <item>Kırıkkale</item>
+        <item>Batman</item>
+        <item>Şırnak</item>
+        <item>Bartın</item>
+        <item>Ardahan</item>
+        <item>Iğdır</item>
+        <item>Yalova</item>
+        <item>Karabük</item>
+        <item>Kilis</item>
+        <item>Osmaniye</item>
+        <item>Düzce</item>
+    </string-array>
+
+
+    <string-array name="yapiya_gelen_hattin_turu">
+        <item>Option1</item>
+        <item>Option2</item>
+    </string-array>
+
+    <string-array name="kablolarin_ekranlanmasi_servis">
+        <item>Option1</item>
+        <item>Option2</item>
+    </string-array>
+
+    <string-array name="og_ag_trafosunun_varligi">
+        <item>Option1</item>
+        <item>Option2</item>
+    </string-array>
+
+    <string-array name="yapiya_gelen_hattin_turu_servis_yerustu">
+        <item>Option1</item>
+        <item>Option2</item>
+    </string-array>
+
+
+    <string-array name="yapiya_gelen_hattin_turu_servis_yeralti">
+        <item>Option1</item>
+        <item>Option2</item>
+    </string-array>
+
+    <string-array name="yildirimdan_korunma_duzeyi">
+        <item>Koruma Yok</item>
+        <item>Koruma Var</item>
+    </string-array>
+
+    <string-array name="yangindan_korunma_turu">
+        <item>Koruma Yok</item>
+        <item>Koruma Var</item>
+    </string-array>
+
+    <string-array name="asiri_gerilimden_korunma_turu">
+        <item>Korunma Yok</item>
+        <item>Korunma Var</item>
+    </string-array>
+
+    <string-array name="yasamsal_tehlikeler">
+        <item>İnsansız Bina</item>
+        <item>Normal Kalabalık</item>
+        <item>Panik Riski Taşıyan, Tahliye Zorluğu Bulunan Bina</item>
+    </string-array>
+
+    <string-array name="yangindan_can_kaybi">
+        <item>İnsansız Bina</item>
+        <item>Normal Kalabalığın Olduğu Bina</item>
+        <item>Yoğun Kalabalığın Olduğu Bina</item>
+    </string-array>
+
+    <string-array name="asiri_gerilimden_can_kaybi">
+        <item>Güvenlik Sistemi Yok</item>
+        <item>Güvenlik Sistemi Var</item>
+    </string-array>
+
+    <string-array name="yangindan_zarar_gorecek_servis">
+        <item>Servis Yok</item>
+        <item>Servis Var</item>
+    </string-array>
+
+    <string-array name="asiri_gerilimden_zarar_gorecek_servis">
+        <item>Servis Yok</item>
+        <item>Servis Var</item>
+    </string-array>
+
+    <string-array name="yangin_nedeniyle_kulturel_miras_kaybi">
+        <item>Kültürel Miras Değeri Yok</item>
+        <item>Kültürel Miras Değeri Var</item>
+    </string-array>
+
+    <string-array name="ekonomik_zarar">
+        <item>Ekonomik Zarar Tehlikesi Yok</item>
+        <item>Ekonomik Zarar Tehlikesi Var</item>
+    </string-array>
+
+    <string-array name="yangin_nedeniyle_ekonomik_kayip">
+        <item>Kayıp Riski Yok</item>
+        <item>Ticari Kayıp Riski Var</item>
+        <item>Demirbaş Kayıp Riski Var</item>
+    </string-array>
+
+    <string-array name="asiri_gerilim_nedeniyle_ekonomik_kayip">
+        <item>Ev</item>
+        <item>İş Yeri</item>
+        <item>Kamu Binası</item>
+    </string-array>
+
+    <string-array name="adim_gerilim_etkisi">
+        <item>Çiftlik Hayvanı Yok</item>
+        <item>Çiftlik Hayvanı Var</item>
+    </string-array>
+
+    <string-array name="kabul_edilir_ekonomik_risk">
+        <item>Option 1</item>
+        <item>Option 2</item>
+    </string-array>
+
+    <string name="sonuc_kayip_turu">Kayıp Türü:</string>
+    <string name="sonuc_kabul_edilir_risk">Kabul Edilir Risk:</string>
+    <string name="sonuc_dogrudan_carpma_riski">Doğrudan Çarpma Riski:</string>
+    <string name="sonuc_dolayli_carpma_riski">Dolaylı Çarpma Riski:</string>
+    <string name="sonuc_toplam_risk">Toplam Risk:</string>
+
+    <string name="sonuc_can_kaybi">Can Kaybı</string>
+    <string name="sonuc_servis_kaybi">Servis Kaybı</string>
+    <string name="sonuc_kulturel_miras_kaybi">Kültürel Miras Kaybı</string>
+    <string name="sonuc_ekonomik_kayip">Ekonomik Kayıp</string>
+
+    <string name="sonuc_geri">Başa Dön</string>
+    <string name="sonuc_devam">3D Görünüme Git</string>
+
+    <string name="sonuc_alert_title">Başa Dönmek İstediğinize Emin misiniz?</string>
+    <string name="sonuc_alert_message">Tüm Verileriniz ve Risk Analiz Sonucunuz Silinecektir.</string>
+    <string name="sonuc_alert_no">İptal</string>
+    <string name="sonuc_alert_yes">Başa Dön</string>
+
+
+    <string name="hint_email">E-Posta</string>
+    <string name="hint_password">Şifre</string>
+    <string name="hint_name">Ad Soyad</string>
+    <string name="btn_login">GİRİŞ</string>
+    <string name="btn_register">KAYDOL</string>
+    <string name="btn_link_to_register">Kaydın yok mu? Şimdi Kaydol.</string>
+    <string name="btn_link_to_login">Zaten Kayıtlı mısın? Giriş Yap!</string>
+    <string name="welcome">Hoşgeldin.</string>
+    <string name="name">As Soyad</string>
+</resources>

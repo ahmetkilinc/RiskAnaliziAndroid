@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.radsan.yldrmdankorunma_riskanalizi.OnlemActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewCevre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main_section4"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textEnerjiHatti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/korunma_onlemleri"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="32dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewYildirimdanKorunmaDuzeyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:text="@string/yildirimdan_korunma_duzeyi"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerYildirimdanKorunmaDuzeyi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/yildirimdan_korunma_duzeyi"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewYangindanKorunmaTuru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:text="@string/yangindan_korunma_turu"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerYangindanKorunmaTuru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/yangindan_korunma_turu"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAsiriGerilimdenKorunmaTuru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:text="@string/asiri_gerilimden_korunma_turu"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerAsiriGerilimdenKorunmaTuru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/asiri_gerilimden_korunma_turu"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="355dp"
+                android:clipToPadding="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonGeri4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/button_geri" />
+
+                <Button
+                    android:id="@+id/buttonDevam4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:background="#33cccc"
+                    android:text="@string/button_devam" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
