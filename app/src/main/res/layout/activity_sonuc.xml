@@ -469,6 +469,12 @@
                     android:background="#33cccc"
                     android:text="@string/sonuc_devam" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSignout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Çıkış" />
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

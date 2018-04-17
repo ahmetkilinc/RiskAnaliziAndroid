@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -9,34 +10,38 @@
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="100dp"
+    android:paddingTop="10dp"
     tools:context="com.radsan.yldrmdankorunma_riskanalizi.SignInActivity">
 
     <TextView
-        android:id="@+id/name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="" />
+        android:id="@+id/textViewAd"
+        android:layout_width="392dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/email_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="401dp"
+        android:layout_height="254dp"
         android:layout_marginTop="50dp"
-        android:text="" />
+        app:srcCompat="@drawable/radsanjustlogo" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp" />
+        android:layout_gravity="center_vertical|fill_horizontal"
+        android:layout_marginTop="100dp"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/sign_out_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:text="Çıkış Yap"
         android:visibility="gone" />
 </LinearLayout>

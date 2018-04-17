@@ -38,7 +38,7 @@ public class SignInActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView emailTextView;
 
-    public FirebaseUser user;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class SignInActivity extends AppCompatActivity {
 
         signInButton = findViewById(R.id.sign_in_button);
         signOutButton = findViewById(R.id.sign_out_button);
-        nameTextView = findViewById(R.id.name_text_view);
-        emailTextView = findViewById(R.id.email_text_view);
+        nameTextView = findViewById(R.id.textViewAd);
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -77,12 +77,12 @@ public class SignInActivity extends AppCompatActivity {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
-                    Intent i = new Intent(SignInActivity.this, MainActivity.class);
-                    startActivity(i);
+                    //Intent i = new Intent(SignInActivity.this, MainActivity.class);
+                    //startActivity(i);
 
-                    /*if(user.getDisplayName() != null)
-                        nameTextView.setText("HI " + user.getDisplayName().toString());
-                    emailTextView.setText(user.getEmail().toString());*/
+                    if(user.getDisplayName() != null)
+                        nameTextView.setText(user.getDisplayName().toString());
+                    //emailTextView.setText(user.getEmail().toString());
 
                 } else {
                     // User is signed out
@@ -112,7 +112,7 @@ public class SignInActivity extends AppCompatActivity {
                             public void onResult(Status status) {
                                 signInButton.setVisibility(View.VISIBLE);
                                 signOutButton.setVisibility(View.GONE);
-                                emailTextView.setText(" ".toString());
+                                //emailTextView.setText(" ".toString());
                                 nameTextView.setText(" ".toString());
                             }
                         });
