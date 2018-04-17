@@ -3,6 +3,7 @@ package com.radsan.yldrmdankorunma_riskanalizi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import spencerstudios.com.bungeelib.Bungee;
 
 public class MainActivity extends AppCompatActivity{
@@ -23,6 +33,13 @@ public class MainActivity extends AppCompatActivity{
     double binaCatiDuzlemiYerdenYukseklik = 0.0;
     double binaCatidakiNoktaninYerdenYuksekligi = 0.0;
     double binaToplamaAlani = 0.0;
+
+    private FirebaseAuth mAuth;
+
+    private GoogleApiClient mGoogleApiClient;
+
+    String name = "";
+    FirebaseUser user;
 
 
     @Override
@@ -36,6 +53,16 @@ public class MainActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_main);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null ){
+
+            name = user.getDisplayName();
+        }
+
+        else{
+
+            startActivity(new Intent(MainActivity.this, SignInActivity.class));
+        }
 
         final EditText etUzunluk = findViewById(R.id.editTextUzunluk);
         final EditText etGenislik = findViewById(R.id.editTextGenislik);
@@ -57,6 +84,43 @@ public class MainActivity extends AppCompatActivity{
         final String kablolarinEkranlanmasi = spKablolarinEkranlanmasi.getSelectedItem().toString();
 
         Button btnDevam1 = findViewById(R.id.buttonDevam1);
+        Button cikisYap = findViewById(R.id.cikisMain);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this , new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+                    }
+                } /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        cikisYap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mAuth.signOut();
+
+                FirebaseAuth.getInstance().signOut();
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(Status status) {
+
+                                startActivity(new Intent(MainActivity.this, SignInActivity.class)
+                                );
+                            }
+                        });
+            }
+        });
 
         btnDevam1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -107,8 +171,9 @@ public class MainActivity extends AppCompatActivity{
 
                     public void onClick(DialogInterface arg0, int arg1){
 
-                        //MainActivity.super.onBackPressed();
-                        System.exit(0);
+                        MainActivity.super.onBackPressed();
+                        //startActivity(new Intent(MainActivity.this, SignInActivity.class));
+
 
                     }
                 }).create().show();

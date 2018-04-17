@@ -243,8 +243,9 @@
                 android:background="#33cccc"
                 android:text="@string/button_devam" />
 
+
             <Button
-                android:id="@+id/button"
+                android:id="@+id/cikisMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Çıkış Yap" />

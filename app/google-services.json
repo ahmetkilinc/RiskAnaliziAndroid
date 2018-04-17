@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "902868016602-6vs6t82a3kl2gsnd6l64ie5v6aem5pf2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.radsan.yldrmdankorunma_riskanalizi",
+            "certificate_hash": "f2488909ecf4551cb5ab794f2ab43540a5c2dc90"
+          }
+        },
+        {
           "client_id": "902868016602-hshqnbf038vqr6uhfggtf2gnivjl88nb.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -73,8 +81,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902868016602-hshqnbf038vqr6uhfggtf2gnivjl88nb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
