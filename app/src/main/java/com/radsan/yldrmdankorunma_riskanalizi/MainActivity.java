@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -35,11 +36,14 @@ public class MainActivity extends AppCompatActivity{
     double binaToplamaAlani = 0.0;
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private GoogleApiClient mGoogleApiClient;
 
+    private FirebaseUser user;
+
     String name = "";
-    FirebaseUser user;
+
 
 
     @Override
@@ -53,16 +57,46 @@ public class MainActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_main);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null ){
+        //
 
-            name = user.getDisplayName();
-        }
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
 
-        else{
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this , new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-            startActivity(new Intent(MainActivity.this, SignInActivity.class));
-        }
+                    }
+                } /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+
+                    Toast.makeText(getApplicationContext(), "giriş yapılmış!!!!!!!!!!!!!!!!!!!!", Toast.LENGTH_LONG).show();
+                    //Intent i = new Intent(SignInActivity.this, MainActivity.class);
+                    //startActivity(i);
+                }
+
+                else {
+                    // User is signed out
+                    Toast.makeText(getApplicationContext(), "Kullanıcı Giriş Yapmadı", Toast.LENGTH_SHORT).show();
+                }
+                // ...
+            }
+        };
+        //
 
         final EditText etUzunluk = findViewById(R.id.editTextUzunluk);
         final EditText etGenislik = findViewById(R.id.editTextGenislik);
@@ -86,15 +120,25 @@ public class MainActivity extends AppCompatActivity{
         Button btnDevam1 = findViewById(R.id.buttonDevam1);
         Button cikisYap = findViewById(R.id.cikisMain);
 
-        mAuth = FirebaseAuth.getInstance();
+
 
 
         cikisYap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mAuth.signOut();
-                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                FirebaseAuth.getInstance().signOut();
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                        new ResultCallback<Status>() {
+                            @Override
+                            public void onResult(Status status) {
+                                //signInButton.setVisibility(View.VISIBLE);
+                                //signOutButton.setVisibility(View.GONE);
+                                //emailTextView.setText(" ".toString());
+                                //nameTextView.setText(" ".toString());
+                            }
+                        });
+                Toast.makeText(getApplicationContext(), "logged out?", Toast.LENGTH_LONG).show();
             }
         });
 

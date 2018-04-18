@@ -333,13 +333,8 @@
     <string name="sonuc_alert_yes">Başa Dön</string>
 
 
-    <string name="hint_email">E-Posta</string>
-    <string name="hint_password">Şifre</string>
-    <string name="hint_name">Ad Soyad</string>
-    <string name="btn_login">GİRİŞ</string>
-    <string name="btn_register">KAYDOL</string>
-    <string name="btn_link_to_register">Kaydın yok mu? Şimdi Kaydol.</string>
-    <string name="btn_link_to_login">Zaten Kayıtlı mısın? Giriş Yap!</string>
-    <string name="welcome">Hoşgeldin.</string>
-    <string name="name">As Soyad</string>
+    <string name="signin_logo_desc">logo-image</string>
+    <string name="signout">Çıkış Yap</string>
+
+
 </resources>

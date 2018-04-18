@@ -16,32 +16,32 @@
     <TextView
         android:id="@+id/textViewAd"
         android:layout_width="392dp"
-        android:layout_height="62dp"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewLogo"
         android:layout_width="401dp"
         android:layout_height="254dp"
         android:layout_marginTop="50dp"
+        android:contentDescription="@string/signin_logo_desc"
         app:srcCompat="@drawable/radsanjustlogo" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|fill_horizontal"
         android:layout_marginTop="100dp"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:textAlignment="center" />
+        android:textAlignment="center">
+    </com.google.android.gms.common.SignInButton>
 
     <Button
         android:id="@+id/sign_out_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:text="Çıkış Yap"
+        android:text="@string/signout"
         android:visibility="gone" />
 </LinearLayout>

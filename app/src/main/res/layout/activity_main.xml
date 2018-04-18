@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="6dp"
     tools:context="com.radsan.yldrmdankorunma_riskanalizi.MainActivity">
 
     <ScrollView
@@ -248,7 +249,8 @@
                 android:id="@+id/cikisMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Çıkış Yap" />
+                android:background="@null"
+                android:text="@string/signout" />
 
         </LinearLayout>
 
