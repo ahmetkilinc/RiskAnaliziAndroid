@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Yıldırımdan Korunma - Risk Analizi</string>
+    <string name="app_name">Risk Analizi</string>
     <string name="radsan_logo_desc">Radsan Logo</string>
 
     <string name="yapi_alert_yes">Evet</string>
@@ -336,5 +336,8 @@
     <string name="signin_logo_desc">logo-image</string>
     <string name="signout">Çıkış Yap</string>
 
+
+    <string name="navigation_item_home">Home</string>
+    <string name="navigation_item_settings">Settings</string>
 
 </resources>

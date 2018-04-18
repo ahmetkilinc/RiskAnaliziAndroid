@@ -6,12 +6,48 @@
     android:layout_height="match_parent"
     tools:context="com.radsan.yldrmdankorunma_riskanalizi.ServisActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:alpha="0.5"
+        android:background="#33cccc"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginStart="78dp"
+            android:layout_weight="0"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="75dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/radsanjustlogo" />
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scrollViewServis"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,8 +93,8 @@
 
                 <TextView
                     android:id="@+id/textViewYapiyaGelenHattinTuru"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
                     android:layout_weight="0"
                     android:text="@string/yapiya_gelen_hattin_turu"
                     android:textColor="@color/colorPrimaryDark"
@@ -75,6 +111,12 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.3"
+                android:background="@android:color/background_dark"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -84,8 +126,8 @@
 
                 <TextView
                     android:id="@+id/textViewKablolarinEkranlanmasiServis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
                     android:layout_weight="0"
                     android:text="@string/kablolarin_ekranlanmasi_servis"
                     android:textColor="@color/colorPrimaryDark"
@@ -102,6 +144,12 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.3"
+                android:background="@android:color/background_dark"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -111,8 +159,8 @@
 
                 <TextView
                     android:id="@+id/textViewOgAgTrafoVarligi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="65dp"
                     android:layout_weight="0"
                     android:text="@string/ogag_trafo_varligi"
                     android:textColor="@color/colorPrimaryDark"
@@ -157,6 +205,12 @@
                     android:textColorHint="@color/colorPrimaryDark" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.3"
+                android:background="@android:color/background_dark"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -166,8 +220,8 @@
 
                 <TextView
                     android:id="@+id/textViewYapiyaGelenHattinTuruServisYerUstu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
                     android:layout_weight="0"
                     android:text="@string/yapiya_gelen_hattin_turu_servis_yerustu"
                     android:textColor="@color/colorPrimaryDark"
@@ -214,6 +268,12 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.3"
+                android:background="@android:color/background_dark"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -223,8 +283,8 @@
 
                 <TextView
                     android:id="@+id/textViewYapiyaGelenHattinTuruServisYerAlti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
                     android:layout_weight="0"
                     android:text="@string/yapiya_gelen_hattin_turu_servis_yeralti"
                     android:textColor="@color/colorPrimaryDark"

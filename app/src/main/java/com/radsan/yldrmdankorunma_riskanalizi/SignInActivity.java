@@ -41,6 +41,10 @@ public class SignInActivity extends AppCompatActivity {
     private Button signOutButton;
     private TextView nameTextView;
 
+    private String displayName = "";
+    private String displayEmail = "";
+    private String displayPhotoUrl = "";
+
     private FirebaseUser user;
 
     @Override
@@ -84,7 +88,14 @@ public class SignInActivity extends AppCompatActivity {
                     signInButton.setVisibility(View.GONE);
                     signOutButton.setVisibility(View.VISIBLE);
 
+                    displayName = user.getDisplayName();
+                    displayEmail = user.getEmail();
+                    displayPhotoUrl = user.getPhotoUrl().toString();
+
                     Intent i = new Intent(SignInActivity.this, MainActivity.class);
+                    i.putExtra("displayName", displayName);
+                    i.putExtra("displayEmail", displayEmail);
+                    i.putExtra("displayPhotoUrl", displayPhotoUrl);
                     startActivity(i);
                     Bungee.zoom(SignInActivity.this);
 
