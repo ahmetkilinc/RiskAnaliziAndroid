@@ -299,13 +299,6 @@
                 android:text="@string/button_devam" />
 
 
-            <Button
-                android:id="@+id/cikisMain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:text="@string/signout" />
-
         </LinearLayout>
 
     </ScrollView>

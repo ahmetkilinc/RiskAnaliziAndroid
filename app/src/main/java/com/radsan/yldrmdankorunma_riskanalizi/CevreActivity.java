@@ -88,4 +88,11 @@ public class CevreActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed(){
+
+        CevreActivity.super.onBackPressed();
+        Bungee.slideRight(CevreActivity.this);
+    }
 }

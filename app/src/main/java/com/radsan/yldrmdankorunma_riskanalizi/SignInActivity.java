@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -39,8 +42,14 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private com.google.android.gms.common.SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
+
     private Button signOutButton;
-    private TextView nameTextView;
+    private Button btnYeniRiskAnalizi;
+    private Button btnTumAnalizleriGor;
+    private TextView tvName;
+    private TextView tvEposta;
+    private ImageView ivProfilPic;
+
 
     private String displayName = "";
     private String displayEmail = "";
@@ -60,7 +69,11 @@ public class SignInActivity extends AppCompatActivity {
 
         signInButton = findViewById(R.id.sign_in_button);
         signOutButton = findViewById(R.id.sign_out_button);
-        nameTextView = findViewById(R.id.textViewAd);
+        btnYeniRiskAnalizi = findViewById(R.id.buttonYeniRiskAnalizi);
+        btnTumAnalizleriGor = findViewById(R.id.buttonTumAnalizleriGor);
+        tvName = findViewById(R.id.textViewAd);
+        tvEposta = findViewById(R.id.textViewEposta);
+        ivProfilPic = findViewById(R.id.imageViewProfilePic);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -88,22 +101,32 @@ public class SignInActivity extends AppCompatActivity {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     signInButton.setVisibility(View.GONE);
                     signOutButton.setVisibility(View.VISIBLE);
+                    btnYeniRiskAnalizi.setVisibility(View.VISIBLE);
+                    btnTumAnalizleriGor.setVisibility(View.VISIBLE);
+                    ivProfilPic.setVisibility(View.VISIBLE);
 
                     displayName = user.getDisplayName();
                     displayEmail = user.getEmail();
                     displayPhotoUrl = user.getPhotoUrl().toString();
 
+                    /*
                     Intent i = new Intent(SignInActivity.this, MainActivity.class);
                     i.putExtra("displayName", displayName);
                     i.putExtra("displayEmail", displayEmail);
                     i.putExtra("displayPhotoUrl", displayPhotoUrl);
                     startActivity(i);
-                    Bungee.zoom(SignInActivity.this);
+                    Bungee.zoom(SignInActivity.this);*/
 
-                    if(user.getDisplayName() != null)
-                        nameTextView.setText(user.getDisplayName().toString());
-                    //emailTextView.setText(user.getEmail().toString());
+                    if(user.getDisplayName() != null){
 
+                        tvName.setText(user.getDisplayName().toString());
+                        tvEposta.setText(user.getEmail().toString());
+                        Glide.with(getApplicationContext())
+                                .load(displayPhotoUrl)
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .skipMemoryCache(true)
+                                .into(ivProfilPic);
+                    }
                 }
 
                 else {
@@ -111,8 +134,12 @@ public class SignInActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Kullanıcı Giriş Yapmadı", Toast.LENGTH_SHORT).show();
                     signInButton.setVisibility(View.VISIBLE);
                     signOutButton.setVisibility(View.GONE);
+                    btnTumAnalizleriGor.setVisibility(View.GONE);
+                    btnYeniRiskAnalizi.setVisibility(View.GONE);
+                    ivProfilPic.setVisibility(View.GONE);
 
-                    nameTextView.setText("".toString());
+                    tvName.setText("".toString());
+                    tvEposta.setText("".toString());
 
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
@@ -128,6 +155,18 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        btnYeniRiskAnalizi.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Intent i = new Intent(SignInActivity.this, MainActivity.class);
+                i.putExtra("displayName", displayName);
+                i.putExtra("displayEmail", displayEmail);
+                i.putExtra("displayPhotoUrl", displayPhotoUrl);
+                startActivity(i);
+                Bungee.zoom(SignInActivity.this);
+            }
+        });
 
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,8 +179,12 @@ public class SignInActivity extends AppCompatActivity {
                             public void onResult(Status status) {
                                 signInButton.setVisibility(View.VISIBLE);
                                 signOutButton.setVisibility(View.GONE);
+                                btnTumAnalizleriGor.setVisibility(View.GONE);
+                                btnYeniRiskAnalizi.setVisibility(View.GONE);
+                                ivProfilPic.setVisibility(View.GONE);
                                 //emailTextView.setText(" ".toString());
-                                nameTextView.setText(" ".toString());
+                                tvName.setText(" ".toString());
+                                tvEposta.setText(" ".toString());
                             }
                         });
             }
@@ -207,29 +250,18 @@ public class SignInActivity extends AppCompatActivity {
 
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful()){
+
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                        } else {
+                        }else{
+
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(SignInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-
                         }
-
-
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                       /* if (!task.isSuccessful()) {
-
-                            Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(SignInActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }*/
                     }
                 });
     }

@@ -128,4 +128,11 @@ public class OnlemActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed(){
+
+        OnlemActivity.super.onBackPressed();
+        Bungee.slideRight(OnlemActivity.this);
+    }
 }

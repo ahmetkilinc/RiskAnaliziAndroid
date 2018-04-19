@@ -131,4 +131,11 @@ public class ServisActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed(){
+
+        ServisActivity.super.onBackPressed();
+        Bungee.slideRight(ServisActivity.this);
+    }
 }
