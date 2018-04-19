@@ -337,7 +337,9 @@
     <string name="signout">Çıkış Yap</string>
 
 
-    <string name="navigation_item_home">Home</string>
-    <string name="navigation_item_settings">Settings</string>
+    <string name="navigation_item_basa_don">Başa Dön</string>
+    <string name="navigation_item_tum_sonuclari_gor">Tüm Analiz Sonuçlarını Gör</string>
+    <string name="navigation_item_ayarlar">Ayarlar</string>
+    <string name="navigation_item_cikis">Çıkış Yap</string>
 
 </resources>
