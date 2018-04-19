@@ -1,6 +1,7 @@
 package com.radsan.yldrmdankorunma_riskanalizi;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private String displayName = "";
     private String displayEmail = "";
-    private String displayPhotoUrl = "";
+    private String displayPhotoUrl;
 
     private FirebaseUser user;
 
