@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -36,6 +37,7 @@ import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.holder.BadgeStyle;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity{
     String name = "";
 
     private AccountHeader headerResult = null;
+    Drawer result;
 
     private String displayName = "";
     private String displayEmail = "";
@@ -190,30 +193,50 @@ public class MainActivity extends AppCompatActivity{
         new DrawerBuilder().withActivity(this).build();
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.navigation_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.navigation_item_settings);
+        PrimaryDrawerItem itemText = new PrimaryDrawerItem().withName("").withSelectable(false);
 
-        Drawer result = new DrawerBuilder()
+        PrimaryDrawerItem itemBasaDon = new PrimaryDrawerItem().withIdentifier(1).withName(
+                R.string.navigation_item_basa_don).withSelectable(false).withIcon(R.drawable.basadon);
+
+        PrimaryDrawerItem itemTumSonuclariGor = new PrimaryDrawerItem().withIdentifier(2).withName(
+                R.string.navigation_item_tum_sonuclari_gor).withSelectable(false).withIcon(R.drawable.sonuclar);
+
+        PrimaryDrawerItem itemAyarlar = new PrimaryDrawerItem().withIdentifier(3).withName(
+                R.string.navigation_item_ayarlar).withSelectable(false).withIcon(R.drawable.ayarlar);
+
+        PrimaryDrawerItem itemCikisYap = new PrimaryDrawerItem().withIdentifier(4).withName(
+                R.string.navigation_item_cikis).withSelectable(false).withIcon(R.drawable.cikis);
+        //SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.navigation_item_settings);
+
+        result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1,
+                        itemText,
+                        itemBasaDon,
+                        itemTumSonuclariGor,
                         new DividerDrawerItem(),
-                        item2,
-                        new SecondaryDrawerItem().withName(R.string.navigation_item_settings)
+                        itemAyarlar,
+                        itemCikisYap
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        // do something with the clicked item :D
-                        return true;
+
+                        if (drawerItem != null){
+
+                            if (drawerItem.getIdentifier() == 1){
+
+                                result.closeDrawer();
+                            }
+                        }
+
+                        return false;
                     }
                 })
                 .build();
         //
-
-
 
         final EditText etUzunluk = findViewById(R.id.editTextUzunluk);
         final EditText etGenislik = findViewById(R.id.editTextGenislik);
@@ -316,8 +339,6 @@ public class MainActivity extends AppCompatActivity{
 
                         MainActivity.super.onBackPressed();
                         Bungee.slideRight(MainActivity.this);
-
-
                     }
                 }).create().show();
     }
