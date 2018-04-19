@@ -146,4 +146,11 @@ public class KayipActivity extends AppCompatActivity{
             }
         });
     }
+
+    @Override
+    public void onBackPressed(){
+
+        KayipActivity.super.onBackPressed();
+        Bungee.slideRight(KayipActivity.this);
+    }
 }

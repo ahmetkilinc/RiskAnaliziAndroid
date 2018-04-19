@@ -86,51 +86,6 @@ public class MainActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_main);
 
-
-
-
-
-        //
-        //initialize and create the image loader logic
-        DrawerImageLoader.init(new AbstractDrawerImageLoader() {
-            @Override
-            public void set(ImageView imageView, Uri uri, Drawable placeholder, String tag) {
-                Glide.with(imageView.getContext()).load(uri).placeholder(placeholder).into(imageView);
-            }
-
-            @Override
-            public void cancel(ImageView imageView) {
-                Glide.clear(imageView);
-            }
-
-            @Override
-            public Drawable placeholder(Context ctx, String tag) {
-                //define different placeholders for different imageView targets
-                //default tags are accessible via the DrawerImageLoader.Tags
-                //custom ones can be checked via string. see the CustomUrlBasePrimaryDrawerItem LINE 111
-                if (DrawerImageLoader.Tags.PROFILE.name().equals(tag)) {
-                    return DrawerUIUtils.getPlaceHolder(ctx);
-                } else if (DrawerImageLoader.Tags.ACCOUNT_HEADER.name().equals(tag)) {
-                    return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(com.mikepenz.materialdrawer.R.color.primary).sizeDp(56);
-                } else if ("customUrlItem".equals(tag)) {
-                    return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(R.color.md_red_500).sizeDp(56);
-                }
-
-                //we use the default one for
-                //DrawerImageLoader.Tags.PROFILE_DRAWER_ITEM.name()
-
-                return super.placeholder(ctx, tag);
-            }
-        });
-        //image loader logic.
-
-
-
-
-
-
-
-
         displayName = getIntent().getStringExtra("displayName");
         displayEmail = getIntent().getStringExtra("displayEmail");
         displayPhotoUrl = getIntent().getStringExtra("displayPhotoUrl");
@@ -177,7 +132,38 @@ public class MainActivity extends AppCompatActivity{
 
         //navigation drawer header
 
-        //Toast.makeText(getApplicationContext(), displayPhotoUrl, Toast.LENGTH_LONG).show();
+        //initialize and create the image loader logic
+        DrawerImageLoader.init(new AbstractDrawerImageLoader() {
+            @Override
+            public void set(ImageView imageView, Uri uri, Drawable placeholder, String tag) {
+                Glide.with(imageView.getContext()).load(uri).placeholder(placeholder).into(imageView);
+            }
+
+            @Override
+            public void cancel(ImageView imageView) {
+                Glide.clear(imageView);
+            }
+
+            @Override
+            public Drawable placeholder(Context ctx, String tag) {
+                //define different placeholders for different imageView targets
+                //default tags are accessible via the DrawerImageLoader.Tags
+                //custom ones can be checked via string. see the CustomUrlBasePrimaryDrawerItem LINE 111
+                if (DrawerImageLoader.Tags.PROFILE.name().equals(tag)) {
+                    return DrawerUIUtils.getPlaceHolder(ctx);
+                } else if (DrawerImageLoader.Tags.ACCOUNT_HEADER.name().equals(tag)) {
+                    return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(com.mikepenz.materialdrawer.R.color.primary).sizeDp(56);
+                } else if ("customUrlItem".equals(tag)) {
+                    return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(R.color.md_red_500).sizeDp(56);
+                }
+
+                //we use the default one for
+                //DrawerImageLoader.Tags.PROFILE_DRAWER_ITEM.name()
+
+                return super.placeholder(ctx, tag);
+            }
+        });
+        //image loader logic.
 
         System.out.println(displayPhotoUrl);
 
@@ -186,7 +172,7 @@ public class MainActivity extends AppCompatActivity{
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
-                .withHeaderBackground(R.drawable.header)
+                .withHeaderBackground(R.drawable.headerradsan)
                 .addProfiles(
                         profile
 
@@ -225,7 +211,6 @@ public class MainActivity extends AppCompatActivity{
                     }
                 })
                 .build();
-
         //
 
 
@@ -250,9 +235,9 @@ public class MainActivity extends AppCompatActivity{
         final String kablolarinEkranlanmasi = spKablolarinEkranlanmasi.getSelectedItem().toString();
 
         Button btnDevam1 = findViewById(R.id.buttonDevam1);
-        Button cikisYap = findViewById(R.id.cikisMain);
+        //Button cikisYap = findViewById(R.id.cikisMain);
 
-        cikisYap.setOnClickListener(new View.OnClickListener() {
+        /*cikisYap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -278,7 +263,7 @@ public class MainActivity extends AppCompatActivity{
                             }
                         }).create().show();
             }
-        });
+        });*/
 
         btnDevam1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -330,7 +315,7 @@ public class MainActivity extends AppCompatActivity{
                     public void onClick(DialogInterface arg0, int arg1){
 
                         MainActivity.super.onBackPressed();
-                        //startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                        Bungee.slideRight(MainActivity.this);
 
 
                     }
