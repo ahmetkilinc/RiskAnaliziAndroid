@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.internal.SignInHubActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -188,6 +189,7 @@ public class KayipActivity extends AppCompatActivity{
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(KayipActivity.this, SignInActivity.class));
+                                Bungee.slideRight(KayipActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -206,7 +208,9 @@ public class KayipActivity extends AppCompatActivity{
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(KayipActivity.this, SignInActivity.class));
+                                Intent i = new Intent(KayipActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(KayipActivity.this);
                             }
                         }

@@ -336,6 +336,10 @@
     <string name="signin_logo_desc">logo-image</string>
     <string name="signout">Çıkış Yap</string>
 
+    <string name="signin_button_yeni_risk_analizi">Yeni Risk Analizi</string>
+    <string name="signin_button_tum_analizleri_gor">Tüm Analizleri Gör</string>
+    <string name="signin_marka">Radsan A.Ş. 2018</string>
+
 
     <string name="navigation_item_basa_don">Başa Dön</string>
     <string name="navigation_item_tum_sonuclari_gor">Tüm Analiz Sonuçlarını Gör</string>

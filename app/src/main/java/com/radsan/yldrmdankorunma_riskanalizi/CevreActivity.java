@@ -160,6 +160,7 @@ public class CevreActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(CevreActivity.this, SignInActivity.class));
+                                Bungee.slideRight(CevreActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -178,7 +179,9 @@ public class CevreActivity extends AppCompatActivity {
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(CevreActivity.this, SignInActivity.class));
+                                Intent i = new Intent(CevreActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(CevreActivity.this);
                             }
                         }
@@ -187,8 +190,6 @@ public class CevreActivity extends AppCompatActivity {
                     }
                 })
                 .build();
-        //
-
 
 
         //******************************************************************************************
@@ -196,7 +197,6 @@ public class CevreActivity extends AppCompatActivity {
         Spinner spKonumFaktoru = findViewById(R.id.spinnerKonumFaktoru);
         Spinner spCevreFaktoru = findViewById(R.id.spinnerCevreFaktoru);
         Spinner spYillikGokGurultuluGunSayisi = findViewById(R.id.spinnerYillikGokGurultuluGun);
-
 
         final String konumFaktoru = spKonumFaktoru.getSelectedItem().toString();
         final String cevreFaktoru = spCevreFaktoru.getSelectedItem().toString();

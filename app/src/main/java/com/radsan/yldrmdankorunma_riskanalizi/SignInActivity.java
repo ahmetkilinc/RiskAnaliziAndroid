@@ -109,14 +109,6 @@ public class SignInActivity extends AppCompatActivity {
                     displayEmail = user.getEmail();
                     displayPhotoUrl = user.getPhotoUrl().toString();
 
-                    /*
-                    Intent i = new Intent(SignInActivity.this, MainActivity.class);
-                    i.putExtra("displayName", displayName);
-                    i.putExtra("displayEmail", displayEmail);
-                    i.putExtra("displayPhotoUrl", displayPhotoUrl);
-                    startActivity(i);
-                    Bungee.zoom(SignInActivity.this);*/
-
                     if(user.getDisplayName() != null){
 
                         tvName.setText(user.getDisplayName().toString());
@@ -131,7 +123,6 @@ public class SignInActivity extends AppCompatActivity {
 
                 else {
                     // User is signed out
-                    Toast.makeText(getApplicationContext(), "Kullanıcı Giriş Yapmadı", Toast.LENGTH_SHORT).show();
                     signInButton.setVisibility(View.VISIBLE);
                     signOutButton.setVisibility(View.GONE);
                     btnTumAnalizleriGor.setVisibility(View.GONE);

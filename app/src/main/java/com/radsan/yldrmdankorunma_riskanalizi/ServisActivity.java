@@ -173,6 +173,7 @@ public class ServisActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(ServisActivity.this, SignInActivity.class));
+                                Bungee.slideRight(ServisActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -191,7 +192,9 @@ public class ServisActivity extends AppCompatActivity {
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(ServisActivity.this, SignInActivity.class));
+                                Intent i = new Intent(ServisActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(ServisActivity.this);
                             }
                         }
