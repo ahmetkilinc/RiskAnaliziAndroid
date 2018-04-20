@@ -196,11 +196,14 @@ public class KayipActivity2 extends AppCompatActivity{
 
                             if (drawerItem.getIdentifier() == 1){
 
+                                //ilk sayfa
                                 startActivity(new Intent(KayipActivity2.this, SignInActivity.class));
+                                Bungee.slideRight(KayipActivity2.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
 
+                                //tüm analizler
                                 startActivity(new Intent(KayipActivity2.this, TumAnalizlerActivity.class));
                                 Bungee.zoom(KayipActivity2.this);
                             }
@@ -215,7 +218,9 @@ public class KayipActivity2 extends AppCompatActivity{
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(KayipActivity2.this, SignInActivity.class));
+                                Intent i = new Intent(KayipActivity2.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(KayipActivity2.this);
                             }
                         }

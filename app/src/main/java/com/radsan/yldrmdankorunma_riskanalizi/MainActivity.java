@@ -228,6 +228,7 @@ public class MainActivity extends AppCompatActivity{
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                                Bungee.slideRight(MainActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -246,7 +247,9 @@ public class MainActivity extends AppCompatActivity{
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                                Intent i = new Intent(MainActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(MainActivity.this);
                             }
                         }

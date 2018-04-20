@@ -182,6 +182,7 @@ public class OnlemActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(OnlemActivity.this, SignInActivity.class));
+                                Bungee.slideRight(OnlemActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -200,7 +201,9 @@ public class OnlemActivity extends AppCompatActivity {
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(OnlemActivity.this, SignInActivity.class));
+                                Intent i = new Intent(OnlemActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(OnlemActivity.this);
                             }
                         }

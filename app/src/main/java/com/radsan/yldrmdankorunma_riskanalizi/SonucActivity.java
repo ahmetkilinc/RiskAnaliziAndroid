@@ -213,6 +213,7 @@ public class SonucActivity extends AppCompatActivity{
                             if (drawerItem.getIdentifier() == 1){
 
                                 startActivity(new Intent(SonucActivity.this, SignInActivity.class));
+                                Bungee.slideRight(SonucActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
@@ -231,7 +232,9 @@ public class SonucActivity extends AppCompatActivity{
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                startActivity(new Intent(SonucActivity.this, SignInActivity.class));
+                                Intent i = new Intent(SonucActivity.this, SignInActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
                                 Bungee.slideRight(SonucActivity.this);
                             }
                         }
@@ -246,9 +249,6 @@ public class SonucActivity extends AppCompatActivity{
 
 
         //******************************************************************************************
-
-
-
 
 
 
