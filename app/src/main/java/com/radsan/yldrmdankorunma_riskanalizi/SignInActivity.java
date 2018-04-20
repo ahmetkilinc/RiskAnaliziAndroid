@@ -175,8 +175,10 @@ public class SignInActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                         new ResultCallback<Status>() {
+
                             @Override
                             public void onResult(Status status) {
+
                                 signInButton.setVisibility(View.VISIBLE);
                                 signOutButton.setVisibility(View.GONE);
                                 btnTumAnalizleriGor.setVisibility(View.GONE);
@@ -191,6 +193,15 @@ public class SignInActivity extends AppCompatActivity {
             // ..
         });
 
+        btnTumAnalizleriGor.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(SignInActivity.this, TumAnalizlerActivity.class));
+                Bungee.zoom(SignInActivity.this);
+            }
+        });
     }
 
     private void signIn() {
@@ -245,6 +256,7 @@ public class SignInActivity extends AppCompatActivity {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -255,8 +267,8 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                        }else{
+                        }
+                        else{
 
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
