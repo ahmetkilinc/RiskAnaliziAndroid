@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -144,6 +143,7 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void cancel(ImageView imageView) {
+
                 Glide.clear(imageView);
             }
 
@@ -167,8 +167,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
         //image loader logic.
-
-        System.out.println(displayPhotoUrl);
 
         final IProfile profile = new ProfileDrawerItem().withName(displayName).withEmail(displayEmail).withIcon(displayPhotoUrl).withIdentifier(100);
 
@@ -221,6 +219,7 @@ public class MainActivity extends AppCompatActivity{
                         itemCikisYap
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
@@ -228,10 +227,30 @@ public class MainActivity extends AppCompatActivity{
 
                             if (drawerItem.getIdentifier() == 1){
 
-                                result.closeDrawer();
+                                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                            }
+
+                            else if(drawerItem.getIdentifier() == 2){
+
+                                startActivity(new Intent(MainActivity.this, TumAnalizlerActivity.class));
+                                Bungee.zoom(MainActivity.this);
+                            }
+
+                            else if(drawerItem.getIdentifier() == 3){
+
+                                //ayarlar
+                                startActivity(new Intent(MainActivity.this, AyarlarActivity.class));
+                                Bungee.zoom(MainActivity.this);
+                            }
+
+                            else if (drawerItem.getIdentifier() == 4){
+
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                                Bungee.slideRight(MainActivity.this);
                             }
                         }
-
+                        //istenilen event gerçekleştikten sonra drawer'ı kapat ->
                         return false;
                     }
                 })
@@ -258,35 +277,6 @@ public class MainActivity extends AppCompatActivity{
         final String kablolarinEkranlanmasi = spKablolarinEkranlanmasi.getSelectedItem().toString();
 
         Button btnDevam1 = findViewById(R.id.buttonDevam1);
-        //Button cikisYap = findViewById(R.id.cikisMain);
-
-        /*cikisYap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle(R.string.yapi_alert_title)
-                        .setMessage(R.string.yapi_alert_message)
-                        .setNegativeButton(R.string.yapi_alert_no, null)
-                        .setPositiveButton(R.string.yapi_alert_yes, new DialogInterface.OnClickListener(){
-
-                            public void onClick(DialogInterface arg0, int arg1){
-
-                                FirebaseAuth.getInstance().signOut();
-                                Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                                        new ResultCallback<Status>() {
-                                            @Override
-                                            public void onResult(Status status) {
-
-
-                                            }
-                                        });
-
-                                startActivity(new Intent(MainActivity.this, SignInActivity.class));
-                            }
-                        }).create().show();
-            }
-        });*/
 
         btnDevam1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -307,6 +297,11 @@ public class MainActivity extends AppCompatActivity{
                     binaToplamaAlani = Double.parseDouble(etToplamaAlani.getText().toString());
 
                     Intent in = new Intent(MainActivity.this, CevreActivity.class);
+
+                    in.putExtra("displayName", displayName);
+                    in.putExtra("displayEmail", displayEmail);
+                    in.putExtra("displayPhotoUrl", displayPhotoUrl);
+
                     in.putExtra("binaUzunluk", binaUzunluk);
                     in.putExtra("binaGenislik", binaGenislik);
                     in.putExtra("binaCatiDuzlemiYerdenYukseklik", binaCatiDuzlemiYerdenYukseklik);

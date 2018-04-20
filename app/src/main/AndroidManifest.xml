@@ -25,7 +25,9 @@
         <activity android:name=".KayipActivity" />
         <activity android:name=".KayipActivity2" />
         <activity android:name=".SonucActivity" />
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".TumAnalizlerActivity" />
+        <activity android:name=".AyarlarActivity"></activity>
     </application>
 
 </manifest>
