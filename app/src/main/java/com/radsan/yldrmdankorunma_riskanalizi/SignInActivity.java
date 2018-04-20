@@ -50,7 +50,6 @@ public class SignInActivity extends AppCompatActivity {
     private TextView tvEposta;
     private ImageView ivProfilPic;
 
-
     private String displayName = "";
     private String displayEmail = "";
     private String displayPhotoUrl;

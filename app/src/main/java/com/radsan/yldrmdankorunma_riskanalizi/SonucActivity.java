@@ -225,7 +225,11 @@ public class SonucActivity extends AppCompatActivity{
                             else if(drawerItem.getIdentifier() == 3){
 
                                 //ayarlar
-                                startActivity(new Intent(SonucActivity.this, AyarlarActivity.class));
+                                Intent in = new Intent(SonucActivity.this, AyarlarActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(SonucActivity.this);
                             }
 
