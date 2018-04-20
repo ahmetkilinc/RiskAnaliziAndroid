@@ -1,3 +1,3 @@
 # RiskAnaliziAndroid
 
-An android application for my web analiysis.
+An android application for my web analysis.
