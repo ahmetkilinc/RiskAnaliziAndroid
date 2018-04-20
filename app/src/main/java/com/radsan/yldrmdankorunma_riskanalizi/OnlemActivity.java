@@ -187,14 +187,22 @@ public class OnlemActivity extends AppCompatActivity {
 
                             else if(drawerItem.getIdentifier() == 2){
 
-                                startActivity(new Intent(OnlemActivity.this, TumAnalizlerActivity.class));
+                                Intent in = new Intent(OnlemActivity.this, TumAnalizlerActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(OnlemActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 3){
 
                                 //ayarlar
-                                startActivity(new Intent(OnlemActivity.this, AyarlarActivity.class));
+                                Intent in = new Intent(OnlemActivity.this, AyarlarActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(OnlemActivity.this);
                             }
 

@@ -204,14 +204,22 @@ public class KayipActivity2 extends AppCompatActivity{
                             else if(drawerItem.getIdentifier() == 2){
 
                                 //tüm analizler
-                                startActivity(new Intent(KayipActivity2.this, TumAnalizlerActivity.class));
+                                Intent in = new Intent(KayipActivity2.this, TumAnalizlerActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(KayipActivity2.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 3){
 
                                 //ayarlar
-                                startActivity(new Intent(KayipActivity2.this, AyarlarActivity.class));
+                                Intent in = new Intent(KayipActivity2.this, AyarlarActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(KayipActivity2.this);
                             }
 

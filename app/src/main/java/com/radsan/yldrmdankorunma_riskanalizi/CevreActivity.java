@@ -165,14 +165,22 @@ public class CevreActivity extends AppCompatActivity {
 
                             else if(drawerItem.getIdentifier() == 2){
 
-                                startActivity(new Intent(CevreActivity.this, TumAnalizlerActivity.class));
+                                Intent in = new Intent(CevreActivity.this, TumAnalizlerActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(CevreActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 3){
 
                                 //ayarlar
-                                startActivity(new Intent(CevreActivity.this, AyarlarActivity.class));
+                                Intent in = new Intent(CevreActivity.this, AyarlarActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(CevreActivity.this);
                             }
 
