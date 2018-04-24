@@ -67,7 +67,7 @@
                 android:id="@+id/buttonProfilDuzenle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#039BE5"
+                android:background="#00ACC1"
                 android:text="@string/ayarlar_profil_duzenle" />
 
             <Button
@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="#03A9F4"
+                android:background="#00BCD4"
                 android:text="@string/ayarlar_analiz_sec_sil" />
 
             <Button
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="#29B6F6"
+                android:background="#26C6DA"
                 android:text="@string/ayarlar_tum_analizleri_sil" />
 
             <Button
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="#4FC3F7"
+                android:background="#4DD0E1"
                 android:text="@string/ayarlar_hesabi_sil" />
 
             <Button
@@ -99,8 +99,8 @@
                 android:layout_width="100dp"
                 android:layout_height="25dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="5dp"
-                android:background="#81D4FA"
+                android:layout_marginTop="350dp"
+                android:background="#80DEEA"
                 android:text="@string/ayarlar_hakkinda" />
         </LinearLayout>
 

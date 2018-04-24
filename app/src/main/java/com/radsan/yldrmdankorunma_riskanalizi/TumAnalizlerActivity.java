@@ -143,11 +143,10 @@ public class TumAnalizlerActivity extends AppCompatActivity {
 
                             if (drawerItem.getIdentifier() == 1){
 
-                                Intent in = new Intent(TumAnalizlerActivity.this, SignInActivity.class);
-
-                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 //ilk sayfa
-                                startActivity(new Intent(TumAnalizlerActivity.this, SignInActivity.class));
+                                Intent in = new Intent(TumAnalizlerActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(TumAnalizlerActivity.this);
                             }
 

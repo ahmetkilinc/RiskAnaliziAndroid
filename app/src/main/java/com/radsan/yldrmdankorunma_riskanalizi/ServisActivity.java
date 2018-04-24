@@ -173,6 +173,7 @@ public class ServisActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 Intent in = new Intent(ServisActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(in);
                                 Bungee.slideRight(ServisActivity.this);
                             }

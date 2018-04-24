@@ -56,8 +56,6 @@ public class AyarlarActivity extends AppCompatActivity {
         Button btnTumAnalizlerimiSil = findViewById(R.id.buttonTumAnalizleriSil);
         Button btnHesabiSil = findViewById(R.id.buttonHesabiSil);
 
-
-
         //initialize and create the image loader logic
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override

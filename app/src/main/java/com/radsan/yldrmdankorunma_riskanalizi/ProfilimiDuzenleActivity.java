@@ -165,7 +165,9 @@ public class ProfilimiDuzenleActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 //ilk sayfa
-                                startActivity(new Intent(ProfilimiDuzenleActivity.this, SignInActivity.class));
+                                Intent in = new Intent(ProfilimiDuzenleActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(ProfilimiDuzenleActivity.this);
                             }
 
