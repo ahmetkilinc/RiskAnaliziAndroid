@@ -27,7 +27,8 @@
         <activity android:name=".SonucActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".TumAnalizlerActivity" />
-        <activity android:name=".AyarlarActivity"></activity>
+        <activity android:name=".AyarlarActivity" />
+        <activity android:name=".ProfilimiDuzenleActivity"></activity>
     </application>
 
 </manifest>

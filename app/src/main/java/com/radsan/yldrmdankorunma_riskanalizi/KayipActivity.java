@@ -188,7 +188,9 @@ public class KayipActivity extends AppCompatActivity{
 
                             if (drawerItem.getIdentifier() == 1){
 
-                                startActivity(new Intent(KayipActivity.this, SignInActivity.class));
+                                Intent in = new Intent(KayipActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(KayipActivity.this);
                             }
 

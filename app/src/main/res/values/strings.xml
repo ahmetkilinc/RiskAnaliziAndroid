@@ -250,8 +250,8 @@
     </string-array>
 
     <string-array name="asiri_gerilimden_korunma_turu">
-        <item>Korunma Yok</item>
-        <item>Korunma Var</item>
+        <item>Koruma Yok</item>
+        <item>Koruma Var</item>
     </string-array>
 
     <string-array name="yasamsal_tehlikeler">
@@ -345,5 +345,15 @@
     <string name="navigation_item_tum_sonuclari_gor">Tüm Analiz Sonuçlarını Gör</string>
     <string name="navigation_item_ayarlar">Ayarlar</string>
     <string name="navigation_item_cikis">Çıkış Yap</string>
+
+    <string name="ayarlar_tum_analizleri_sil">Tüm Analizlerimi Sil</string>
+    <string name="ayarlar_hesabi_sil">Hesabımı Sil</string>
+    <string name="ayarlar_analiz_sec_sil">Analiz Seç ve Sil</string>
+    <string name="ayarlar_profil_duzenle">Profilimi Düzenle</string>
+    <string name="ayarlar_hakkinda">Hakkında</string>
+
+
+    <string name="profil_vazgec">Vazgeç</string>
+    <string name="profil_kaydet">Kaydet</string>
 
 </resources>

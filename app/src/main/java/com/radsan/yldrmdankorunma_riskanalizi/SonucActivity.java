@@ -212,13 +212,19 @@ public class SonucActivity extends AppCompatActivity{
 
                             if (drawerItem.getIdentifier() == 1){
 
+                                Intent in = new Intent(SonucActivity.this, SignInActivity.class);
                                 startActivity(new Intent(SonucActivity.this, SignInActivity.class));
                                 Bungee.slideRight(SonucActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
 
-                                startActivity(new Intent(SonucActivity.this, TumAnalizlerActivity.class));
+                                //tüm analizler
+                                Intent in = new Intent(SonucActivity.this, TumAnalizlerActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
                                 Bungee.zoom(SonucActivity.this);
                             }
 

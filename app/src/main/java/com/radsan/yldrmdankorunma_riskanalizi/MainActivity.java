@@ -343,7 +343,9 @@ public class MainActivity extends AppCompatActivity{
 
                     public void onClick(DialogInterface arg0, int arg1){
 
-                        MainActivity.super.onBackPressed();
+                        Intent in = new Intent(MainActivity.this, SignInActivity.class);
+                        in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(in);
                         Bungee.slideRight(MainActivity.this);
                     }
                 }).create().show();

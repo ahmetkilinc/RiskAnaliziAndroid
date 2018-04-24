@@ -197,7 +197,9 @@ public class KayipActivity2 extends AppCompatActivity{
                             if (drawerItem.getIdentifier() == 1){
 
                                 //ilk sayfa
-                                startActivity(new Intent(KayipActivity2.this, SignInActivity.class));
+                                Intent in = new Intent(KayipActivity2.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(KayipActivity2.this);
                             }
 
