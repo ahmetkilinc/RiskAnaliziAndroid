@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -49,6 +50,12 @@ public class AyarlarActivity extends AppCompatActivity {
         final String displayName = getIntent().getStringExtra("displayName");
         final String displayEmail = getIntent().getStringExtra("displayEmail");
         final String displayPhotoUrl = getIntent().getStringExtra("displayPhotoUrl");
+
+        Button btnProfilimiDuzenle = findViewById(R.id.buttonProfilDuzenle);
+        Button btnAnalizSecSil = findViewById(R.id.buttonAnalizSecveSil);
+        Button btnTumAnalizlerimiSil = findViewById(R.id.buttonTumAnalizleriSil);
+        Button btnHesabiSil = findViewById(R.id.buttonHesabiSil);
+
 
 
         //initialize and create the image loader logic
@@ -144,7 +151,9 @@ public class AyarlarActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 //ilk sayfa
-                                startActivity(new Intent(AyarlarActivity.this, SignInActivity.class));
+                                Intent in = new Intent(AyarlarActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(AyarlarActivity.this);
                             }
 
@@ -155,7 +164,7 @@ public class AyarlarActivity extends AppCompatActivity {
                                 in.putExtra("displayName", displayName);
                                 in.putExtra("displayEmail", displayEmail);
                                 in.putExtra("displayPhotoUrl", displayPhotoUrl);
-                                startActivity(new Intent(AyarlarActivity.this, TumAnalizlerActivity.class));
+                                startActivity(in);
                                 Bungee.zoom(AyarlarActivity.this);
                             }
 
@@ -181,9 +190,20 @@ public class AyarlarActivity extends AppCompatActivity {
                 .build();
         //
 
-
-
         //******************************************************************************************
+
+        btnProfilimiDuzenle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(AyarlarActivity.this, ProfilimiDuzenleActivity.class);
+                i.putExtra("displayName", displayName);
+                i.putExtra("displayEmail", displayEmail);
+                i.putExtra("displayPhotoUrl", displayPhotoUrl);
+                startActivity(i);
+                Bungee.zoom(AyarlarActivity.this);
+            }
+        });
 
     }
 

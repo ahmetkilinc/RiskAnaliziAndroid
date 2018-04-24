@@ -153,6 +153,7 @@ public class SignInActivity extends AppCompatActivity {
                 i.putExtra("displayName", displayName);
                 i.putExtra("displayEmail", displayEmail);
                 i.putExtra("displayPhotoUrl", displayPhotoUrl);
+                System.out.println(displayPhotoUrl);
                 startActivity(i);
                 Bungee.zoom(SignInActivity.this);
             }
@@ -188,7 +189,11 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(SignInActivity.this, TumAnalizlerActivity.class));
+                Intent in = new Intent(SignInActivity.this, TumAnalizlerActivity.class);
+                in.putExtra("displayName", displayName);
+                in.putExtra("displayEmail", displayEmail);
+                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                startActivity(in);
                 Bungee.zoom(SignInActivity.this);
             }
         });
@@ -262,7 +267,7 @@ public class SignInActivity extends AppCompatActivity {
 
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(SignInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this, "Internet bağlantınızı kontrol ettikten sonra tekrar deneyiniz.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

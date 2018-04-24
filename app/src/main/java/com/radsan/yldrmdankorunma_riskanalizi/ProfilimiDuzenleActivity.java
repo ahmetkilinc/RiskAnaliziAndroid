@@ -10,9 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.auth.FirebaseAuth;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -30,30 +34,43 @@ import com.mikepenz.materialdrawer.util.DrawerUIUtils;
 
 import spencerstudios.com.bungeelib.Bungee;
 
-public class TumAnalizlerActivity extends AppCompatActivity {
+public class ProfilimiDuzenleActivity extends AppCompatActivity {
 
     Drawer result;
     private AccountHeader headerResult = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_tum_analizler);
+        setContentView(R.layout.activity_profilimi_duzenle);
 
         final String displayName = getIntent().getStringExtra("displayName");
         final String displayEmail = getIntent().getStringExtra("displayEmail");
         final String displayPhotoUrl = getIntent().getStringExtra("displayPhotoUrl");
+
+        TextView tvAd = findViewById(R.id.textViewKullaniciAdi);
+        TextView tvEmail = findViewById(R.id.textViewEmail);
+        ImageView ivUserPhoto = findViewById(R.id.imageViewUserPhoto);
+        EditText etAdres = findViewById(R.id.editTextAdres);
+        //adres var mı yok mu kontrol et, varsa var olanı yazdır. yoksa yeni yazılanı database e at.
+        EditText etTelefonNo = findViewById(R.id.editTextTelefonNo);
+        //telefon no var mı yok mu kontrol et, varsa var olanı yazdır. yoksa yeni yazılanı database e at.
+        Button btnVazgec = findViewById(R.id.buttonVazgecProfil);
+        Button btnKaydet = findViewById(R.id.buttonKaydetProfil);
 
 
         //initialize and create the image loader logic
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
             public void set(ImageView imageView, Uri uri, Drawable placeholder, String tag) {
+
                 Glide.with(imageView.getContext()).load(uri).placeholder(placeholder).into(imageView);
             }
 
@@ -69,10 +86,15 @@ public class TumAnalizlerActivity extends AppCompatActivity {
                 //default tags are accessible via the DrawerImageLoader.Tags
                 //custom ones can be checked via string. see the CustomUrlBasePrimaryDrawerItem LINE 111
                 if (DrawerImageLoader.Tags.PROFILE.name().equals(tag)) {
+
                     return DrawerUIUtils.getPlaceHolder(ctx);
+
                 } else if (DrawerImageLoader.Tags.ACCOUNT_HEADER.name().equals(tag)) {
+
                     return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(com.mikepenz.materialdrawer.R.color.primary).sizeDp(56);
+
                 } else if ("customUrlItem".equals(tag)) {
+
                     return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(R.color.md_red_500).sizeDp(56);
                 }
 
@@ -135,7 +157,6 @@ public class TumAnalizlerActivity extends AppCompatActivity {
                         itemCikisYap
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
@@ -143,39 +164,42 @@ public class TumAnalizlerActivity extends AppCompatActivity {
 
                             if (drawerItem.getIdentifier() == 1){
 
-                                Intent in = new Intent(TumAnalizlerActivity.this, SignInActivity.class);
-
-                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 //ilk sayfa
-                                startActivity(new Intent(TumAnalizlerActivity.this, SignInActivity.class));
-                                Bungee.slideRight(TumAnalizlerActivity.this);
+                                startActivity(new Intent(ProfilimiDuzenleActivity.this, SignInActivity.class));
+                                Bungee.slideRight(ProfilimiDuzenleActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 2){
 
                                 //tüm analizler
-                                result.closeDrawer();
+                                Intent in = new Intent(ProfilimiDuzenleActivity.this, TumAnalizlerActivity.class);
+                                in.putExtra("displayName", displayName);
+                                in.putExtra("displayEmail", displayEmail);
+                                in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                startActivity(in);
+                                Bungee.zoom(ProfilimiDuzenleActivity.this);
                             }
 
                             else if(drawerItem.getIdentifier() == 3){
 
                                 //ayarlar
-                                //ayarlar
-                                Intent in = new Intent(TumAnalizlerActivity.this, AyarlarActivity.class);
+                                Intent in = new Intent(ProfilimiDuzenleActivity.this, AyarlarActivity.class);
                                 in.putExtra("displayName", displayName);
                                 in.putExtra("displayEmail", displayEmail);
                                 in.putExtra("displayPhotoUrl", displayPhotoUrl);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(in);
-                                Bungee.zoom(TumAnalizlerActivity.this);
+                                Bungee.slideRight(ProfilimiDuzenleActivity.this);
+                                //result.closeDrawer();
                             }
 
                             else if (drawerItem.getIdentifier() == 4){
 
                                 FirebaseAuth.getInstance().signOut();
-                                Intent i = new Intent(TumAnalizlerActivity.this, SignInActivity.class);
+                                Intent i = new Intent(ProfilimiDuzenleActivity.this, SignInActivity.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(i);
-                                Bungee.slideRight(TumAnalizlerActivity.this);
+                                Bungee.slideRight(ProfilimiDuzenleActivity.this);
                             }
                         }
                         //istenilen event gerçekleştikten sonra drawer'ı kapat ->
@@ -185,14 +209,38 @@ public class TumAnalizlerActivity extends AppCompatActivity {
                 .build();
         //
 
-
         //******************************************************************************************
+
+        tvAd.setText(displayName.toString());
+        tvEmail.setText(displayEmail.toString());
+        Glide.with(getApplicationContext())
+                .load(displayPhotoUrl)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(ivUserPhoto);
+
+        btnVazgec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ProfilimiDuzenleActivity.super.onBackPressed();
+                Bungee.slideRight(ProfilimiDuzenleActivity.this);
+            }
+        });
+
+        btnKaydet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //database'e verileri yazdır.
+            }
+        });
     }
 
     @Override
     public void onBackPressed(){
 
-        TumAnalizlerActivity.super.onBackPressed();
-        Bungee.slideRight(TumAnalizlerActivity.this);
+        ProfilimiDuzenleActivity.super.onBackPressed();
+        Bungee.slideRight(ProfilimiDuzenleActivity.this);
     }
 }
