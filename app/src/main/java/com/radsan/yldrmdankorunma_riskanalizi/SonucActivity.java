@@ -213,7 +213,8 @@ public class SonucActivity extends AppCompatActivity{
                             if (drawerItem.getIdentifier() == 1){
 
                                 Intent in = new Intent(SonucActivity.this, SignInActivity.class);
-                                startActivity(new Intent(SonucActivity.this, SignInActivity.class));
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(SonucActivity.this);
                             }
 
@@ -266,7 +267,7 @@ public class SonucActivity extends AppCompatActivity{
 
         //Activitydeki eleman declarations
         Button btnSonucGeri = findViewById(R.id.buttonGeriSonuc);
-        Button btnSonucDevam = findViewById(R.id.buttonDevamSonuc);
+        Button btnSonucDevam = findViewById(R.id.buttonKaydetSonuc);
 
         TextView tvCanKaybiKabulEdilirRisk = findViewById(R.id.textViewCanKaybiKabulEdilirRisk);
         TextView tvCanKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewCanKaybiDogrudanCarpmaRiski);
@@ -293,17 +294,6 @@ public class SonucActivity extends AppCompatActivity{
         tvCanKaybiDolayliCarpmaRiski.setText(Double.toString(binaGenislik));
 
 
-        Button btnSignout = findViewById(R.id.buttonSignout);
-
-        btnSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                user = null;
-
-                startActivity(new Intent(SonucActivity.this, SignInActivity.class))   ;
-            }
-        });
     }
 
 

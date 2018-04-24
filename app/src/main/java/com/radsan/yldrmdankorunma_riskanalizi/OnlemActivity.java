@@ -182,7 +182,8 @@ public class OnlemActivity extends AppCompatActivity {
                             if (drawerItem.getIdentifier() == 1){
 
                                 Intent in = new Intent(new Intent(OnlemActivity.this, SignInActivity.class));
-                                startActivity(new Intent(OnlemActivity.this, SignInActivity.class));
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(OnlemActivity.this);
                             }
 

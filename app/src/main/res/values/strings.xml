@@ -325,7 +325,7 @@
     <string name="sonuc_ekonomik_kayip">Ekonomik Kayıp</string>
 
     <string name="sonuc_geri">Başa Dön</string>
-    <string name="sonuc_devam">3D Görünüme Git</string>
+    <string name="sonuc_devam">Kaydet</string>
 
     <string name="sonuc_alert_title">Başa Dönmek İstediğinize Emin misiniz?</string>
     <string name="sonuc_alert_message">Tüm Verileriniz ve Risk Analiz Sonucunuz Silinecektir.</string>

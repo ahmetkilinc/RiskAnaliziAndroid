@@ -227,7 +227,9 @@ public class MainActivity extends AppCompatActivity{
 
                             if (drawerItem.getIdentifier() == 1){
 
-                                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                                Intent in = new Intent(MainActivity.this, SignInActivity.class);
+                                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(in);
                                 Bungee.slideRight(MainActivity.this);
                             }
 
