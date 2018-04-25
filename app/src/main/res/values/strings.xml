@@ -356,4 +356,30 @@
     <string name="profil_vazgec">Vazgeç</string>
     <string name="profil_kaydet">Kaydet</string>
 
+    <string name="hakkinda_yasal_uyari_baslik">Yasal Uyarılar</string>
+    <string name="hakkinda_yasal_uyari_icerik">
+Bu mobil uygulama size Radsan A.Ş., İVOGSAN Ağaç Metal İşleri Sitesi 1122 Cd. 1434. Sk. No:1 Ostim / Ankara – Türkiye, tarafından sunulmaktadır. Bu uygulamada sağlanan hizmetler RADSAN A.Ş. (bundan böyle Radsan veya uygulama sahibi olarak anılacaktır), uygulamayı geliştiren ve üçüncü parti uygulamalar kullanılarak özenle bir araya getirilmiştir.
+Bu uygulamanın kullanımından doğan herhangi bir zarar – haksız fiil dahil olmak üzere kanuni bir sebebe dayalı olması dışında - ile ilgili uygulama sahibi sorumlulukları amacı veya ağır ihmalinin sebep olabileceği zararlar ile sınırlıdır. Sözleşme ile belirli esaslı görevlerin ihmalinden kaynaklanacak hasarlarda web sitesi sahibinin zorunlu yükümlülükleri ile sınırlı olmak kaydı ile talep edilebilecek toplam tazminat öngörülebilir hasarlar ile sınırlıdır. Bu uygulama sahibinin uygulanabilir Ürün Sorumluluğu kanunu veya verilen garantiler tahtındaki yükümlülüğünü etkilemez. Yukarıda bahsedilen sorumluluk sınırlamaları aynı zamanda insan hayatına, bedeni yaralanmaya veya bir kişinin sağlığına gelebilecek zararlar durumunda geçerli değildir.
+Web sitesi sahibi web sitesinde sunulan hizmetlerde kusur veya hata olmayacağına dair veya kesintisiz hizmet verebileceği garantisini verememektedir.
+</string>
+
+    <string name="hakkinda_gizlilik_baslik">Gizlilik Politikası</string>
+    <string name="hakkinda_gizlilik_icerik">Bu uygulama size Radsan A.Ş., İVOGSAN Ağaç Metal İşleri Sitesi 1122 Cd. 1434. Sk. No:1 Ostim / Ankara - Türkiye, tarafından sunulmaktadır.
+Bu uygulamanın hizmetlerinden yararlanırken vereceğiniz kişisel bilgiler, uygulama sahibi tarafından kontrol altında tutulacaktır.
+</string>
+
+    <string name="hakkinda_kalite_baslik">Kalite Politikamız</string>
+    <string name="hakkinda_kalite_icerik1">RADSAN A.Ş OLARAK: ŞİRKET KURUCUMUZUN 24.05.1945 TARİHİNDE ÖZEL NOT DEFTERİNE ALMIŞ OLDUĞU</string>
+    <string name="hakkinda_kalite_icerik2"> “... demek ki her ne olursa olsun yaptığın bütün işlerde ve çalışmalarda bir güzellik, bir hoşa gider gönül okşayıcı şekil ve intizamlı yaparsan; muhakkak suretle mükafatını görürsün.“</string>
+    <string name="hakkinda_kalite_icerik3">NOTUNDAN YOLA ÇIKARAK;  İLKE VE DEĞERLERİMİZE UYGUN OLARAK OLUŞTURDUĞUMUZ ENTEGRE YÖNETİM SİSTEMİ İLE YASAL GEREKLİLİKLER DOĞRULTUSUNDA HAREKET ETMEYİ, PAYDAŞLARIMIZIN GÜVENİNİ KAZANMAYI, SÜREKLİ İYİLEŞTİRMELER İLE SİSTEMİNİ GELİŞTİREN, MÜŞTERİ MEMNUNİYETİNİ EN ÜST DÜZEYDE KARŞILAYARAK, KALİTELİ, EKONOMİK ÜRÜN VE HİZMETİ ZAMANINDA SUNAN ULUSAL VE ULUSLARARASI PAZARDA LİDER BİR FİRMA OLMAYI AMAÇLIYORUZ</string>
+    <string name="hakkinda_kalite_icerik4">BU AMAÇ DOĞRULTUSUNDA;
+ MÜŞTERİ ODAKLI OLUP BEKLENTİLERİNİ KARŞILAMADA SÜREKLİLİĞİ SAĞLAMAYI VE MÜŞTERİ ŞİKÂYETLERİNİ ETKİN OLARAK ELE ALMAYI,
+FAALİYETLERİMİZDE İŞ SAĞLIĞI VE GÜVENLİĞİNİ SAĞLAMAYA VE İŞ KAZALARINI ÖNLEMEYE YÖNELİK SİSTEMLER GELİŞTİRMEYİ, ACİL DURUMLARA MÜDAHALE EDEBİLECEK ŞEKİLDE ORGANİZE OLMAYI,
+DOĞAL ÇEVREMİZİ KORUMAYA ODAKLANARAK İNSANA VE ÇEVREYE SAYGILI OLMAYI, ATIKLARI AZALTMAYI, GERİ DÖNÜŞÜM ORANINI ARTIRMAYI, DOĞAL KAYNAKLARI VERİMLİ KULLANMAYI,
+ŞİRKET HEDEFLERİNE ULAŞMAYI ETKİLEYEBİLECEK RİSK UNSURLARINI VE FIRSATLARI RİSK YÖNETİMİ KAPSAMINDA ETKİ VE OLASILIĞA GÖRE TANIMLAMAYI, DEĞERLENDİRMEYİ, İZLEMEYİ VE GEREKTİĞİNDE AKSİYONLAR ALMAYI
+Ulusal ve uluslararası Standartlara, Yasal Mevzuatlara,  Müşteri VE İŞLETME ŞARTNAMELERİNE UYARAK FAALİYETLERİMİZİ GERÇEKLEŞTİRMEYİ
+UYGULAMALARIMIZDA PAYDAŞLARIMIZA KARŞI ŞEFFAF OLMAYI VE ÇALIŞANLARIMIZDAKİ FARKINDALIĞI ARTIRARAK, KURMUŞ OLDUĞUMUZ ENTEGRE YÖNETİM SİSTEMİ STANDARTLARI GEREKLERİNİ TÜM ÇALIŞANLARIMIZIN KATILIMI İLE UYGULAMAYI VE SÜREKLİ GELİŞMEYİ TAAHHÜT EDİYORUZ.
+</string>
+    <string name="hakkinda_kalite_icerik5">GENEL MÜDÜR</string>
+    <string name="hakkinda_kalite_icerik6">Turgut Tekin</string>
 </resources>

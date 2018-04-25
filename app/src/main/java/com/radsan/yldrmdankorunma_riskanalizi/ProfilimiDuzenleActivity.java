@@ -209,9 +209,8 @@ public class ProfilimiDuzenleActivity extends AppCompatActivity {
                     }
                 })
                 .build();
-        //
 
-        //******************************************************************************************
+        /* ****************************************************************************************** */
 
         tvAd.setText(displayName.toString());
         tvEmail.setText(displayEmail.toString());
@@ -221,6 +220,7 @@ public class ProfilimiDuzenleActivity extends AppCompatActivity {
                 .skipMemoryCache(true)
                 .into(ivUserPhoto);
 
+        /* vazgeç butonu */
         btnVazgec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,11 +230,12 @@ public class ProfilimiDuzenleActivity extends AppCompatActivity {
             }
         });
 
+        /* kaydet butonu */
         btnKaydet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //database'e verileri yazdır.
+                /* database'e verileri yazdır. */
             }
         });
     }
