@@ -334,7 +334,7 @@
 
 
     <string name="signin_logo_desc">logo-image</string>
-    <string name="signout">Çıkış Yap</string>
+    <string name="signout">Hesaptan Çıkış Yap</string>
 
     <string name="signin_button_yeni_risk_analizi">Yeni Risk Analizi</string>
     <string name="signin_button_tum_analizleri_gor">Tüm Analizleri Gör</string>
