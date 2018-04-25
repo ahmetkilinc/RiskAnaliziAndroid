@@ -115,11 +115,6 @@ public class SonucActivity extends AppCompatActivity{
         //kayip turu 2-den gelen değerler
         //alt aktiviteden gelen değerler ***
 
-
-
-
-
-
         //initialize and create the image loader logic
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
@@ -266,8 +261,8 @@ public class SonucActivity extends AppCompatActivity{
 
 
         //Activitydeki eleman declarations
-        Button btnSonucGeri = findViewById(R.id.buttonGeriSonuc);
-        Button btnSonucDevam = findViewById(R.id.buttonKaydetSonuc);
+        Button btnSonucBasadon = findViewById(R.id.buttonSonucBasadon);
+        Button btnSonucKaydet = findViewById(R.id.buttonSonucKaydet);
 
         TextView tvCanKaybiKabulEdilirRisk = findViewById(R.id.textViewCanKaybiKabulEdilirRisk);
         TextView tvCanKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewCanKaybiDogrudanCarpmaRiski);
@@ -294,6 +289,16 @@ public class SonucActivity extends AppCompatActivity{
         tvCanKaybiDolayliCarpmaRiski.setText(Double.toString(binaGenislik));
 
 
+
+        btnSonucBasadon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(SonucActivity.this, SignInActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
     }
 
 

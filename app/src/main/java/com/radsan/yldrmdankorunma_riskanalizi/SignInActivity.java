@@ -80,7 +80,9 @@ public class SignInActivity extends AppCompatActivity {
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
+
                 .enableAutoManage(this , new GoogleApiClient.OnConnectionFailedListener() {
+
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
@@ -91,11 +93,13 @@ public class SignInActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
+
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     signInButton.setVisibility(View.GONE);
@@ -121,6 +125,7 @@ public class SignInActivity extends AppCompatActivity {
                 }
 
                 else {
+
                     // User is signed out
                     signInButton.setVisibility(View.VISIBLE);
                     signOutButton.setVisibility(View.GONE);
@@ -138,6 +143,7 @@ public class SignInActivity extends AppCompatActivity {
         };
 
         signInButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 

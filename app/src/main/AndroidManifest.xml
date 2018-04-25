@@ -28,7 +28,8 @@
         <activity android:name=".SignInActivity" />
         <activity android:name=".TumAnalizlerActivity" />
         <activity android:name=".AyarlarActivity" />
-        <activity android:name=".ProfilimiDuzenleActivity"></activity>
+        <activity android:name=".ProfilimiDuzenleActivity" />
+        <activity android:name=".HakkindaActivity"></activity>
     </application>
 
 </manifest>

@@ -158,14 +158,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:background="@android:color/background_dark"/>
 
                 <TextView
                     android:id="@+id/textViewCanKaybi"
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="0"
+                    android:gravity="center"
                     android:text="@string/sonuc_can_kaybi"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -180,6 +187,7 @@
                     android:id="@+id/textViewCanKaybiKabulEdilirRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -193,6 +201,7 @@
                     android:id="@+id/textViewCanKaybiDogrudanCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -206,6 +215,7 @@
                     android:id="@+id/textViewCanKaybiDolayliCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -219,6 +229,7 @@
                     android:id="@+id/textViewCanKaybiToplamRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -238,14 +249,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:alpha="0.3"
+                    android:background="@android:color/background_dark"/>
 
                 <TextView
                     android:id="@+id/textViewServisKaybi"
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="0"
+                    android:gravity="center"
                     android:text="@string/sonuc_servis_kaybi"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -260,6 +278,7 @@
                     android:id="@+id/textViewServisKaybiKabulEdilirRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -273,6 +292,7 @@
                     android:id="@+id/textViewServisKaybiDogrudanCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -286,6 +306,7 @@
                     android:id="@+id/textViewServisKaybiDolayliCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -299,6 +320,7 @@
                     android:id="@+id/textViewServisKaybiToplamRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -318,7 +340,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal">
 
                 <View
@@ -330,8 +352,9 @@
                 <TextView
                     android:id="@+id/textViewKulturelMirasKaybi"
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="0"
+                    android:gravity="center"
                     android:text="@string/sonuc_kulturel_miras_kaybi"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -346,6 +369,7 @@
                     android:id="@+id/textViewKulturelMirasKaybiKabulEdilirRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -359,6 +383,7 @@
                     android:id="@+id/textViewKulturelMirasKaybiDogrudanCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -372,6 +397,7 @@
                     android:id="@+id/textViewKulturelMirasKaybiDolayliCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -385,6 +411,7 @@
                     android:id="@+id/textViewKulturelMirasKaybiToplamRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -401,23 +428,26 @@
                 android:alpha="0.3"
                 android:background="@android:color/background_dark"/>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal">
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/textViewEkonomikKayip"
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="0"
+                    android:gravity="center"
                     android:text="@string/sonuc_ekonomik_kayip"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -426,12 +456,13 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/textViewEkonomikKayipKabulEdilirRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -439,12 +470,13 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/textViewEkonomikKayipDogrudanCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -452,12 +484,13 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/textViewEkonomikKayipDolayliCarpmaRiski"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -465,12 +498,13 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/textViewEkonomikKayipToplamRisk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:textAlignment="center" />
 
@@ -478,7 +512,7 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:alpha="0.3"
-                    android:background="@android:color/background_dark"/>
+                    android:background="@android:color/background_dark" />
             </LinearLayout>
 
             <View
@@ -495,7 +529,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/buttonGeriSonuc"
+                    android:id="@+id/buttonSonucBasadon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
@@ -503,7 +537,7 @@
                     android:text="@string/sonuc_geri" />
 
                 <Button
-                    android:id="@+id/buttonKaydetSonuc"
+                    android:id="@+id/buttonSonucKaydet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"

@@ -55,6 +55,7 @@ public class AyarlarActivity extends AppCompatActivity {
         Button btnAnalizSecSil = findViewById(R.id.buttonAnalizSecveSil);
         Button btnTumAnalizlerimiSil = findViewById(R.id.buttonTumAnalizleriSil);
         Button btnHesabiSil = findViewById(R.id.buttonHesabiSil);
+        Button btnHakkinda = findViewById(R.id.buttonHakkinda);
 
         //initialize and create the image loader logic
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
@@ -97,11 +98,8 @@ public class AyarlarActivity extends AppCompatActivity {
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.drawable.headerradsan)
                 .addProfiles(
-                        profile
 
-                        //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        //new ProfileSettingDrawerItem().withName("Add Account").withDescription("Add new GitHub Account").withIdentifier(PROFILE_SETTING)
-                        //new ProfileSettingDrawerItem().withName("Manage Account").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(100001)
+                        profile
                 )
                 .withSavedInstance(savedInstanceState)
                 .build();
@@ -198,6 +196,16 @@ public class AyarlarActivity extends AppCompatActivity {
                 i.putExtra("displayName", displayName);
                 i.putExtra("displayEmail", displayEmail);
                 i.putExtra("displayPhotoUrl", displayPhotoUrl);
+                startActivity(i);
+                Bungee.zoom(AyarlarActivity.this);
+            }
+        });
+
+        btnHakkinda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(AyarlarActivity.this, HakkindaActivity.class);
                 startActivity(i);
                 Bungee.zoom(AyarlarActivity.this);
             }
