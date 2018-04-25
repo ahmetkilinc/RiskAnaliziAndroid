@@ -63,10 +63,27 @@
             android:orientation="vertical">
 
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ayarlar"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp"
+                android:textStyle="normal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.3"
+                android:background="@android:color/background_dark"/>
+
             <Button
                 android:id="@+id/buttonProfilDuzenle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="#00ACC1"
                 android:text="@string/ayarlar_profil_duzenle" />
 
@@ -94,14 +111,21 @@
                 android:background="#4DD0E1"
                 android:text="@string/ayarlar_hesabi_sil" />
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/radsannewlogo" />
+
             <Button
                 android:id="@+id/buttonHakkinda"
                 android:layout_width="100dp"
                 android:layout_height="25dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="350dp"
+                android:layout_marginTop="0dp"
                 android:background="#80DEEA"
                 android:text="@string/ayarlar_hakkinda" />
+
         </LinearLayout>
 
 

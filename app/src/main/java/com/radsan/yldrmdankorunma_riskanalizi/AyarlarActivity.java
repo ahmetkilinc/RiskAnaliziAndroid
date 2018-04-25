@@ -1,9 +1,12 @@
 package com.radsan.yldrmdankorunma_riskanalizi;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +15,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -35,6 +42,7 @@ public class AyarlarActivity extends AppCompatActivity {
 
     Drawer result;
     private AccountHeader headerResult = null;
+    private static final String TAG = "AyarlarActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,6 +216,91 @@ public class AyarlarActivity extends AppCompatActivity {
                 Intent i = new Intent(AyarlarActivity.this, HakkindaActivity.class);
                 startActivity(i);
                 Bungee.zoom(AyarlarActivity.this);
+            }
+        });
+
+        btnHesabiSil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AlertDialog.Builder(AyarlarActivity.this)
+                        .setTitle(R.string.yapi_alert_title)
+                        .setMessage(R.string.yapi_alert_message)
+                        .setNegativeButton(R.string.yapi_alert_no, null)
+                        .setPositiveButton(R.string.yapi_alert_yes, new DialogInterface.OnClickListener(){
+
+                            public void onClick(DialogInterface arg0, int arg1){
+
+                                //kullanıcı evet dediyse -> firebaseden hesabı sil.
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                user.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+
+                                                //silme işleminde bir sıkıntı çıkmadıysa kullanıcıyı giriş sayfasına yönlendir.
+                                                if (task.isSuccessful()) {
+
+                                                    Toast.makeText(getApplicationContext(), "Hesabınız Silinmiştir.", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(AyarlarActivity.this, SignInActivity.class);
+                                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    startActivity(i);
+                                                    Bungee.slideRight(AyarlarActivity.this);
+                                                }
+                                                //silme işlemi başarısız olduysa kullanıcıyı tekrar giriş yapması için giriş sayfasına yönlendir.
+                                                else{
+
+                                                    Toast.makeText(getApplicationContext(), "Hesabınızı Silebilmek için Lütfen Tekrar Giriş Yapınız.", Toast.LENGTH_SHORT).show();
+                                                    FirebaseAuth.getInstance().signOut();
+                                                    Intent i = new Intent(AyarlarActivity.this, SignInActivity.class);
+                                                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    startActivity(i);
+                                                    Bungee.slideRight(AyarlarActivity.this);
+                                                }
+                                            }
+                                        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            }
+                        }).create().show();
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
         });
 
