@@ -332,6 +332,11 @@
     <string name="sonuc_alert_no">İptal</string>
     <string name="sonuc_alert_yes">Başa Dön</string>
 
+    <string name="kabul_edilir_risk_can_kaybi">1,00E-05</string>
+    <string name="kabul_edilir_risk_servis_kaybi">1,00E-03</string>
+    <string name="kabul_edilir_risk_kulturel_miras_kaybi">1,00E-03</string>
+    <string name="kabul_edilir_risk_ekonomik_kayip">1,00E-05</string>
+
 
     <string name="signin_logo_desc">logo-image</string>
     <string name="signout">Hesaptan Çıkış Yap</string>

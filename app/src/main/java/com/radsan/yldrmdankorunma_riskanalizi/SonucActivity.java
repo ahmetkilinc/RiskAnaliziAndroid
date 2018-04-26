@@ -1,12 +1,15 @@
 package com.radsan.yldrmdankorunma_riskanalizi;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,11 +35,48 @@ import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerUIUtils;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.CDATASection;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import spencerstudios.com.bungeelib.Bungee;
 
 public class SonucActivity extends AppCompatActivity{
+
+    TextView tvCanKaybiDogrudanCarpmaRiski;
+    TextView tvCanKaybiDolayliCarpmaRiski;
+    TextView tvCanKaybiToplamRisk;
+
+    TextView tvServisKaybiDogrudanCarpmaRiski;
+    TextView tvServisKaybiDolayliCarpmaRiski;
+    TextView tvServisKaybiToplamRisk;
+
+    TextView tvKulturelMirasKaybiDogrudanCarpmaRiski;
+    TextView tvKulturelMirasKaybiDolayliCarpmaRiski;
+    TextView tvKulturelMirasKaybiToplamRisk;
+
+    TextView tvEkonomikKayipDogrudanCarpmaRiski;
+    TextView tvEkonomikKayipDolayliCarpmaRiski;
+    TextView tvEkonomikKayipToplamRisk;
+
+    //db için JSON parser ve dialog
+    private ProgressDialog pDialog;
+    JSONParser jsonParser = new JSONParser();
+
+    private static String url_yeni_analiz = "https://ahmetkilinc.net/riskandroid/yeni_analiz.php";
+
+    private static final String TAG_SUCCESS = "success";
+
+    private JSONObject json;
+
+    private String displayName;
+    private String displayEmail;
+    private String displayPhotoUrl;
 
     FirebaseUser user;
 
@@ -56,9 +96,9 @@ public class SonucActivity extends AppCompatActivity{
 
         //alt aktiviteden gelen değerler ***
 
-        final String displayName = getIntent().getStringExtra("displayName");
-        final String displayEmail = getIntent().getStringExtra("displayEmail");
-        final String displayPhotoUrl = getIntent().getStringExtra("displayPhotoUrl");
+        displayName = getIntent().getStringExtra("displayName");
+        displayEmail = getIntent().getStringExtra("displayEmail");
+        displayPhotoUrl = getIntent().getStringExtra("displayPhotoUrl");
 
         //yapidan gelen değerler
         final double binaUzunluk = getIntent().getDoubleExtra("binaUzunluk", 0.0);
@@ -265,24 +305,24 @@ public class SonucActivity extends AppCompatActivity{
         Button btnSonucKaydet = findViewById(R.id.buttonSonucKaydet);
 
         TextView tvCanKaybiKabulEdilirRisk = findViewById(R.id.textViewCanKaybiKabulEdilirRisk);
-        TextView tvCanKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewCanKaybiDogrudanCarpmaRiski);
-        TextView tvCanKaybiDolayliCarpmaRiski = findViewById(R.id.textViewCanKaybiDolayliCarpmaRiski);
-        TextView tvCanKaybiToplamRisk = findViewById(R.id.textViewCanKaybiToplamRisk);
+        tvCanKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewCanKaybiDogrudanCarpmaRiski);
+        tvCanKaybiDolayliCarpmaRiski = findViewById(R.id.textViewCanKaybiDolayliCarpmaRiski);
+        tvCanKaybiToplamRisk = findViewById(R.id.textViewCanKaybiToplamRisk);
 
         TextView tvServisKaybiKabulEdilirRisk = findViewById(R.id.textViewServisKaybiKabulEdilirRisk);
-        TextView tvServisKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewServisKaybiDogrudanCarpmaRiski);
-        TextView tvServisKaybiDolayliCarpmaRiski = findViewById(R.id.textViewServisKaybiDolayliCarpmaRiski);
-        TextView tvServisKaybiToplamRisk = findViewById(R.id.textViewServisKaybiToplamRisk);
+        tvServisKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewServisKaybiDogrudanCarpmaRiski);
+        tvServisKaybiDolayliCarpmaRiski = findViewById(R.id.textViewServisKaybiDolayliCarpmaRiski);
+        tvServisKaybiToplamRisk = findViewById(R.id.textViewServisKaybiToplamRisk);
 
         TextView tvKulturelMirasKaybiKabulEdilirRisk = findViewById(R.id.textViewKulturelMirasKaybiKabulEdilirRisk);
-        TextView tvKulturelMirasKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewKulturelMirasKaybiDogrudanCarpmaRiski);
-        TextView tvKulturelMirasKaybiDolayliCarpmaRiski = findViewById(R.id.textViewKulturelMirasKaybiDolayliCarpmaRiski);
-        TextView tvKulturelMirasKaybiToplamRisk = findViewById(R.id.textViewKulturelMirasKaybiToplamRisk);
+        tvKulturelMirasKaybiDogrudanCarpmaRiski = findViewById(R.id.textViewKulturelMirasKaybiDogrudanCarpmaRiski);
+        tvKulturelMirasKaybiDolayliCarpmaRiski = findViewById(R.id.textViewKulturelMirasKaybiDolayliCarpmaRiski);
+        tvKulturelMirasKaybiToplamRisk = findViewById(R.id.textViewKulturelMirasKaybiToplamRisk);
 
         TextView tvEkonomikKayipKabulEdilirRisk = findViewById(R.id.textViewEkonomikKayipKabulEdilirRisk);
-        TextView tvEkonomikKayipDogrudanCarpmaRiski = findViewById(R.id.textViewEkonomikKayipDogrudanCarpmaRiski);
-        TextView tvEkonomikKayipDolayliCarpmaRiski = findViewById(R.id.textViewEkonomikKayipDolayliCarpmaRiski);
-        TextView tvEkonomikKayipToplamRisk = findViewById(R.id.textViewEkonomikKayipToplamRisk);
+        tvEkonomikKayipDogrudanCarpmaRiski = findViewById(R.id.textViewEkonomikKayipDogrudanCarpmaRiski);
+        tvEkonomikKayipDolayliCarpmaRiski = findViewById(R.id.textViewEkonomikKayipDolayliCarpmaRiski);
+        tvEkonomikKayipToplamRisk = findViewById(R.id.textViewEkonomikKayipToplamRisk);
         //Activity eleman declarations
 
         tvEkonomikKayipToplamRisk.setText(Double.toString(binaUzunluk));
@@ -299,7 +339,148 @@ public class SonucActivity extends AppCompatActivity{
                 startActivity(i);
             }
         });
+
+        btnSonucKaydet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // creating new product in background thread
+                new CreateNewProduct().execute();
+            }
+        });
     }
+
+
+    class CreateNewProduct extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+            pDialog = new ProgressDialog(SonucActivity.this);
+            pDialog.setMessage("Analiz Sonucunuz Kaydediliyor...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        /**
+         * Creating product
+         * */
+        protected String doInBackground(String... args) {
+
+            String a = "100";
+            String b = "12";
+            String c = "5";
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+            params.add(new BasicNameValuePair("a_adi", "new_analiz_adi_sonra_duzelt"));
+            params.add(new BasicNameValuePair("dcr_can_kaybi", a));
+            params.add(new BasicNameValuePair("dcr_servis_kaybi", b));
+            params.add(new BasicNameValuePair("dcr_kulturel_miras_kaybi", c));
+            params.add(new BasicNameValuePair("dcr_ekonomik_kayip", "15"));
+            params.add(new BasicNameValuePair("dolayli_can_kaybi", "12"));
+            params.add(new BasicNameValuePair("dolayli_servis_kaybi", "1.45"));
+            params.add(new BasicNameValuePair("dolayli_kulturel_miras_kaybi", "2.88"));
+            params.add(new BasicNameValuePair("dolayli_ekonomik_kayip", "77"));
+            params.add(new BasicNameValuePair("tr_can_kaybi", "44"));
+            params.add(new BasicNameValuePair("tr_servis_kaybi", "10"));
+            params.add(new BasicNameValuePair("tr_kulturel_miras_kaybi", "5"));
+            params.add(new BasicNameValuePair("tr_ekonomik_kayip", "45"));
+
+            /*params.add(new BasicNameValuePair("a_adi", "new_analiz_adi_sonra_düzelt"));
+            params.add(new BasicNameValuePair("dcr_can_kaybi", tvCanKaybiDogrudanCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dcr_servis_kaybi", tvServisKaybiDogrudanCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dcr_kulturel_miras_kaybi", tvKulturelMirasKaybiDogrudanCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dcr_ekonomik_kayip", tvEkonomikKayipDogrudanCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dolayli_can_kaybi", tvCanKaybiDolayliCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dolayli_servis_kaybi", tvServisKaybiDolayliCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dolayli_kulturel_miras_kaybi", tvKulturelMirasKaybiDolayliCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("dolayli_ekonomik_kayip", tvEkonomikKayipDolayliCarpmaRiski.toString()));
+            params.add(new BasicNameValuePair("tr_can_kaybi", tvCanKaybiToplamRisk.toString()));
+            params.add(new BasicNameValuePair("tr_servis_kaybi", tvServisKaybiToplamRisk.toString()));
+            params.add(new BasicNameValuePair("tr_kulturel_miras_kaybi", tvKulturelMirasKaybiToplamRisk.toString()));
+            params.add(new BasicNameValuePair("tr_ekonomik_kayip", tvEkonomikKayipToplamRisk.toString()));*/
+
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            json = jsonParser.makeHttpRequest(url_yeni_analiz,
+                    "POST", params);
+
+            // check log cat for response
+            Log.d("Create Response", json.toString());
+
+            // check for success tag
+            /*try {
+                int success = json.getInt(TAG_SUCCESS);
+
+                //Toast.makeText(getApplicationContext(), json.getInt(TAG_SUCCESS), Toast.LENGTH_LONG).show();
+
+                if (success == 1) {
+                    // successfully created product
+                    //Intent i = new Intent(SonucActivity.this, MainActivity.class);
+                    //startActivity(i);
+
+                    //Toast.makeText(getApplicationContext(), "oo o olmuş.", Toast.LENGTH_LONG).show();
+
+                    Log.d("a", "success = 1");
+
+                    // closing this screen
+                    finish();
+                } else {
+                    //Toast.makeText(SonucActivity.this, "oo o olmuş mu?.", Toast.LENGTH_LONG).show();
+                    // failed to create product
+                }
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+            }*/
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+
+            try {
+
+                int success = json.getInt(TAG_SUCCESS);
+                //Toast.makeText(getApplicationContext(), json.getInt(TAG_SUCCESS), Toast.LENGTH_LONG).show();
+
+                if (success == 1) {
+                    // successfully created product
+                    Intent i = new Intent(SonucActivity.this, SignInActivity.class);
+                    startActivity(i);
+
+                    Toast.makeText(getApplicationContext(), "Analiziniz Kaydedildi.", Toast.LENGTH_LONG).show();
+
+                    // closing this screen
+                    finish();
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Bir Hata Oluştu, Lütfen Tekrar Deneyiniz.", Toast.LENGTH_LONG).show();
+                    // failed to create product
+                }
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
 
 
 
