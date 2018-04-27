@@ -46,6 +46,8 @@ import java.util.List;
 
 import spencerstudios.com.bungeelib.Bungee;
 
+import static java.lang.Math.pow;
+
 public class SonucActivity extends AppCompatActivity{
 
     TextView tvCanKaybiDogrudanCarpmaRiski;
@@ -296,10 +298,6 @@ public class SonucActivity extends AppCompatActivity{
 
         //******************************************************************************************
 
-
-
-
-
         //Activitydeki eleman declarations
         Button btnSonucBasadon = findViewById(R.id.buttonSonucBasadon);
         Button btnSonucKaydet = findViewById(R.id.buttonSonucKaydet);
@@ -416,32 +414,6 @@ public class SonucActivity extends AppCompatActivity{
             // check log cat for response
             Log.d("Create Response", json.toString());
 
-            // check for success tag
-            /*try {
-                int success = json.getInt(TAG_SUCCESS);
-
-                //Toast.makeText(getApplicationContext(), json.getInt(TAG_SUCCESS), Toast.LENGTH_LONG).show();
-
-                if (success == 1) {
-                    // successfully created product
-                    //Intent i = new Intent(SonucActivity.this, MainActivity.class);
-                    //startActivity(i);
-
-                    //Toast.makeText(getApplicationContext(), "oo o olmuş.", Toast.LENGTH_LONG).show();
-
-                    Log.d("a", "success = 1");
-
-                    // closing this screen
-                    finish();
-                } else {
-                    //Toast.makeText(SonucActivity.this, "oo o olmuş mu?.", Toast.LENGTH_LONG).show();
-                    // failed to create product
-                }
-            } catch (JSONException e) {
-
-                e.printStackTrace();
-            }*/
-
             return null;
         }
 
@@ -477,12 +449,6 @@ public class SonucActivity extends AppCompatActivity{
             }
         }
     }
-
-
-
-
-
-
 
     @Override
     public void onBackPressed(){

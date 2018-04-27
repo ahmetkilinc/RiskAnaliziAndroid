@@ -1,7 +1,9 @@
 package com.radsan.yldrmdankorunma_riskanalizi;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,9 +34,24 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import spencerstudios.com.bungeelib.Bungee;
 
 public class SignInActivity extends AppCompatActivity {
+
+    //db için JSON parser ve dialog
+    private ProgressDialog pDialog;
+    JSONParser jsonParser = new JSONParser();
+    private static String url_yeni_kullanici = "https://ahmetkilinc.net/riskandroid/yeni_kullanici.php";
+    private static final String TAG_SUCCESS = "success";
+    private JSONObject json;
 
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 0 ;
@@ -268,6 +285,7 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            new CreateNewUser().execute();
                         }
                         else{
 
@@ -277,5 +295,82 @@ public class SignInActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    class CreateNewUser extends AsyncTask<String, String, String>{
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+            pDialog = new ProgressDialog(SignInActivity.this);
+            pDialog.setMessage("Analiz Sonucunuz Kaydediliyor...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        /**
+         * Creating user
+         * */
+        protected String doInBackground(String... args) {
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+            params.add(new BasicNameValuePair("kullanici_ad", displayName));
+            params.add(new BasicNameValuePair("kullanici_email", displayEmail));
+            params.add(new BasicNameValuePair("kullanici_foto", displayPhotoUrl));
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            json = jsonParser.makeHttpRequest(url_yeni_kullanici,
+                    "POST", params);
+
+            // check log cat for response
+            Log.d("Create Response", json.toString());
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+
+            try {
+
+                int success = json.getInt(TAG_SUCCESS);
+                //Toast.makeText(getApplicationContext(), json.getInt(TAG_SUCCESS), Toast.LENGTH_LONG).show();
+
+                if (success == 1) {
+                    // successfully created product
+                    //Intent i = new Intent(SonucActivity.this, SignInActivity.class);
+                    //startActivity(i);
+
+                    Log.d("hoooo:", "giriş yapıldı. kayıt yapıldı.");
+                    Toast.makeText(getApplicationContext(), "Başarıyla Giriş Yaptınız.", Toast.LENGTH_LONG).show();
+
+                    // closing this screen
+                    //finish();
+                } else if (success == 2){
+
+                    Toast.makeText(getApplicationContext(), "Giriş Başarılı!", Toast.LENGTH_LONG).show();
+                    Log.d("hoooo:", "giriş yapıldı ama kayıt yapılmadı.");
+                    // failed to create product
+                }
+
+                else{
+
+                    Log.d("hoooo:", "giriş yapıldı, ne kayıt???.");
+                    Toast.makeText(getApplicationContext(), "Kendi sunucularımızda bir aksilik yaşıyoruz, uygulamayı bu şekilde kullanmaya devam ederseniz aldığınız analiz sonuvu malesef bize ulaşmayacaktır.", Toast.LENGTH_LONG).show();
+                }
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+            }
+        }
     }
 }
